@@ -4,8 +4,7 @@
 
 buildHeader <- function() {
   
-  print("THIS AUTH METHOD IS REDUNDANT")
-  print("WE SHOULD BE USING OAUTH")
+  print("buildHeader.R - THIS AUTH METHOD IS REDUNDANT, SHOULD BE USING OAUTH")
 
   #Create nonce
   nonce <- as.character(as.numeric(Sys.time()))
