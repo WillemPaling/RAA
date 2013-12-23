@@ -1,8 +1,8 @@
 export(QueueReport,JSONQueueReport,AA_Auth,AA_SetDebug)
 
+importFrom("jsonlite", toJSON, fromJSON)
 importFrom("plyr", ldply, quickdf, rbind.fill)
 importFrom("stringr", str_replace_all, str_count, str_split_fixed)
 importFrom("httr", add_headers, POST, content)
 importFrom("digest", digest)
-importFrom("jsonlite", toJSON, fromJSON)
 importFrom("base64enc", base64encode)

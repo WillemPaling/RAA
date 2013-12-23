@@ -15,7 +15,7 @@ api_getReport <- function(report_id,interval_seconds=5,max_attempts=120) {
     request_data <- postRequest("Report.Get",report_json)
     save(request_data,file="request_data.Rda")
     if(request_data$status==200){
-      report_data <- content(request_data)
+      report_data <- fromJSON(content(request_data,"text"))
       report_ready <- !isTRUE(report_data$error=="report_not_ready") 
     }
     if(report_ready==FALSE) {

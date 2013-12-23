@@ -9,7 +9,7 @@ JSONQueueReport <- function(report_description) {
     report_data <- api_getReport(report_id)
     return(report_data)
   } else {
-    print("Invalid report description.")
+    print("ERROR: Invalid report description.")
   }
   
 } #End function bracket

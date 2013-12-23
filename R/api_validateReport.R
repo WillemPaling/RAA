@@ -35,7 +35,7 @@ api_validateReport <- function(report_description,interval_seconds=2,max_attempt
   if(isTRUE(queue_resp$valid)) {
     return(TRUE)
   } else {
-    print(paste("Invalid Report Description:",queue_resp$error_description))
+    print(queue_resp$error_description)
     return(FALSE)
   }
 }

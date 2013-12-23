@@ -3,20 +3,26 @@
 
 parseOvertime <- function(report_data) {
 
+  # jsonlite already makes this into a nice data frame for us
   data <- report_data$report$data
 
-  rows <- lapply(data, "[", c("name", "year", "month", "day", "hour")) #Just the breakdowns @TODO - this probably needs to detect if hour exists?
+  # Create a column of R datetimes
+  if('hour' %in% colnames(data)){
+    datetime <- strptime(paste(data$year,data$month,data$day,data$hour,sep="-"), "%Y-%m-%d-%H")
+  } else {
+    datetime <- strptime(paste(data$year,data$month,data$day,sep="-"), "%Y-%m-%d")
+  }
 
-  rows_df <- ldply(rows, quickdf) #breakdowns as DF
-  rows_df <- cbind(rows_df, segment=segment_requested) #add segment to df
+  counts_df <- ldply(data$counts)
 
-  counts <- lapply(data, "[[", "counts") # Just the "counts" column
-  counts_df <- ldply(counts, quickdf) # counts as DF
+  metrics <- report_data$report$metrics$id
   names(counts_df) <- metrics #assign names to counts_df
 
-  formatted_df <- cbind(rows_df, counts_df)
-  formatted_df$date <- lapply(formatted_df$name,parseDateStr)
+  drops <- c("counts")
+  rows_df <- data[,!(names(data) %in% drops)]
 
-  return(formatted_df) #append rows info with counts if not anomaly parsing
+  formatted_df <- cbind(datetime,rows_df, counts_df)
+
+  return(formatted_df)
 
 }
