@@ -2,3 +2,5 @@
 .Rhistory
 .RData
 *.Rda
+json_response.txt
+json_queue_validate.txt

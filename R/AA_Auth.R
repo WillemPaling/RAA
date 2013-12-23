@@ -1,4 +1,4 @@
-#Store credentials as character vector for later usage
+# Store credentials as character vector for later usage
 
 # @TODO: Update to use OAUTH
 

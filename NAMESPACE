@@ -1,6 +1,6 @@
-export(JSONQueueReport,AA_Auth)
+export(QueueReport,JSONQueueReport,AA_Auth,AA_SetDebug)
 
-#importFrom("plyr", ldply, quickdf, rbind.fill)
+importFrom("plyr", ldply, quickdf, rbind.fill)
 importFrom("stringr", str_replace_all, str_count, str_split_fixed)
 importFrom("httr", add_headers, POST, content)
 importFrom("digest", digest)

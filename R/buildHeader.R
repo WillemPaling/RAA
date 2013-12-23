@@ -3,9 +3,7 @@
 # This is redundant, we should be using OAUTH
 
 buildHeader <- function() {
-  
   print("buildHeader.R - THIS AUTH METHOD IS REDUNDANT, SHOULD BE USING OAUTH")
-
   #Create nonce
   nonce <- as.character(as.numeric(Sys.time()))
   #Create timestamp
