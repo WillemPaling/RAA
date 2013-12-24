@@ -8,7 +8,7 @@ buildInnerBreakdownsRecursively <- function(parent_element,elements,metrics,
                                             date_range='') {
   
   # loop through all elements and work our way to innermost elements
-  
+
   for(i in 1:nrow(parent_element)){
     
     working_element <- parent_element[i,"breakdown"][[1]]

@@ -45,6 +45,8 @@ api_getReport <- function(report_id,interval_seconds=5,max_attempts=120) {
   return(switch(report_type,
     ranked={parseRanked(report_data)},
     trended={parseTrended(report_data)},
+    pathing={parsePathing(report_data)},
+    fallout={parseFallout(report_data)},
     overtime={parseOvertime(report_data)}
   ))
 
