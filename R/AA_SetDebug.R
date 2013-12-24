@@ -1,11 +1,11 @@
 # AA_SetDebug
 # Sets debug mode to enable debug messages and file output
 
-utils::globalVariables("AADebug")
+utils::globalVariables("AA.Debug")
 
-AA_SetDebug <- function(debug_mode = TRUE){
+AA_SetDebug <- function(debug.mode = TRUE){
   
-  AADebug <<- debug_mode
-  print(paste("DEBUG MODE: ",debug_mode))
+  AA.Debug <<- debug.mode
+  print(paste("DEBUG MODE: ",debug.mode))
 
 } #End function bracket  

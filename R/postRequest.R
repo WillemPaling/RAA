@@ -1,7 +1,7 @@
-# postRequest
+# PostRequest
 # Internal function
 # Build generic POST request
 
-postRequest <- function(method,body=NULL){
-  return(POST(buildURL(method), add_headers(buildHeader()), body))
+PostRequest <- function(method,body=NULL){
+  return(POST(BuildURL(method), add_headers(BuildHeader()), body))
 }

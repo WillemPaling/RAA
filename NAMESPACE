@@ -1,4 +1,4 @@
-export(QueueReport,JSONQueueReport,AA_Auth,AA_SetDebug)
+export(QueueOvertime,JsonQueueReport,AA_Auth,AA_SetDebug)
 
 importFrom("jsonlite", toJSON, fromJSON)
 importFrom("plyr", ldply, quickdf, rbind.fill)

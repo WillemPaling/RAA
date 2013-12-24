@@ -2,35 +2,35 @@
 
 # @TODO: Update to use OAUTH
 
-utils::globalVariables("AACredentials")
+utils::globalVariables("AA.Credentials")
 
-AA_Auth <- function(user_name, shared_secret, endpoint_url=""){
+AA_Auth <- function(user.name, shared.secret, endpoint.url=""){
   #Silence visible binding error
   
-  AACredentials <- ""
+  AA.Credentials <- ""
   
-  error_flag = 0
-  if(str_count(user_name, ":") != 1){
+  error.flag = 0
+  if(str_count(user.name, ":") != 1){
     warning("Check User Name. Must have 'username:company' pattern")
-    error_flag = error_flag + 1
+    error.flag = error.flag + 1
   }
-  if(endpoint_url==""){
+  if(endpoint.url==""){
     warning("Error: No endpoint URL specified.")
-    error_flag = error_flag + 1
+    error.flag = error.flag + 1
   }
-  if(nchar(shared_secret) != 32){
+  if(nchar(shared.secret) != 32){
     warning("Shared Secret does not have valid number of characters (32)")
-    error_flag = error_flag + 1
+    error.flag = error.flag + 1
   }
   
-  if(error_flag >0){
+  if(error.flag >0){
     stop("Authentication failed due to errors")
   } else {
-    company <- str_split_fixed(user_name, ":", 2)
+    company <- str_split_fixed(user.name, ":", 2)
     #Create SCCredentials object in Global Environment
-    AACredentials <<- c(user_name, shared_secret)
+    AA.Credentials <<- c(user.name, shared.secret)
     #Assign endpoint to 3rd position in credentials
-    AACredentials[3] <<- endpoint_url
+    AA.Credentials[3] <<- endpoint.url
     print("Auth stored: THIS SHOULD USE OAUTH!!")
   }
 } #End function bracket  
