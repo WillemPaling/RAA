@@ -1,6 +1,10 @@
-# JsonQueueReport
-# JsonQueueReport generic interface to Report.Queue
-# Primarily used for debugging, data is not returned in a useful structure for use in R
+# JsonQueueReport - Internal Function - Generic interface to validate, queue and retrieve a report from the API
+# Args:
+#   report.description: JSON report description
+#
+# Returns:
+#   Formatted data frame
+#
 
 JsonQueueReport <- function(report.description) {
 
@@ -12,4 +16,4 @@ JsonQueueReport <- function(report.description) {
     print("ERROR: Invalid report description.")
   }
   
-} #End function bracket
+}

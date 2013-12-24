@@ -1,6 +1,11 @@
-# BuildHeader
-# Build Header for REST API call
-# This is redundant, we should be using OAUTH
+# BuildHeader - Internal function - Build Header for REST API call. This is redundant, we should be using OAUTH.
+#
+# Args:
+#   NONE
+#
+# Returns:
+#   Header string for the old API auth method.
+#
 
 BuildHeader <- function() {
   print("BuildHeader.R - THIS AUTH METHOD IS REDUNDANT, SHOULD BE USING OAUTH")

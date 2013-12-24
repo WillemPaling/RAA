@@ -1,6 +1,13 @@
-# ApiValidateReport
-# Internal function
-# Calls the API and attempts to validate a report description.
+# ApiValidateReport - Internal function - Calls the API and attempts to validate a report description.
+#
+# Args:
+#   report.description: JSON report description
+#   interval.seconds: Time to wait between attempts to get the report (defaults to 2 seconds)
+#   max.attempts: Max number of attempts to make to retrieve the report (defaults to 5)
+#
+# Returns:
+#   TRUE/FALSE depending on whether the report is valid or not
+#
 
 ApiValidateReport <- function(report.description,interval.seconds=2,max.attempts=5) {
   

@@ -1,7 +1,16 @@
-# BuildInnerBreakdownsRecursively
-# BuildInnerBreakdownsRecursively is used by trended and ranked reports
-# loops over the report structure until it gets to the bottom level and
-# returns a flat breakdown
+# BuildInnerBreakdownsRecursively - Internal Function - used by trended and ranked reports to loop over the report structure until it gets to the bottom level, then return a flat, context-aware breakdown.
+# Args:
+#   parent.element: element containing breakdown rows
+#   elements: list of all elements included in the report
+#   metrics: list of all metrics included in the report
+#   current.recursion.level: current recursion level, initial call should set this to 0, this increments as the function is called recursively
+#   context: initially a blank list, with additional context added as we go further down the data structure
+#   accumulator: data frame used to accumulate the report data (yes, I use some for loops here, if anyone can find a better way to do this, please submit a pull request)
+#   date.range: date range for the report, these columns are added if specified
+#
+# Returns:
+#   Flat data frame containing all key report data
+#
 
 BuildInnerBreakdownsRecursively <- function(parent.element,elements,metrics,
                                             current.recursion.level,context,accumulator=data.frame(),

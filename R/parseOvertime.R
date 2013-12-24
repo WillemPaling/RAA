@@ -1,5 +1,10 @@
-# ParseOvertime - function to convert API output to data frame for an Over Time report from the 1.4 API
-# returns a formatted data frame
+# ParseOvertime - Internal Function - Parses an overtime report returned from the API
+# Args:
+#   report.data: jsonlite formatted data frame of report data returned from the API
+#
+# Returns:
+#   Formatted data frame
+#
 
 ParseOvertime <- function(report.data) {
 

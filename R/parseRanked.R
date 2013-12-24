@@ -1,5 +1,11 @@
-# ParseRanked - function to convert API output to data frame for an Over Time report from the 1.4 API
-# returns a formatted data frame
+# ParseRanked - Internal Function - Parses a ranked report returned from the API
+# Args:
+#   report.data: jsonlite formatted data frame of report data returned from the API
+#
+# Returns:
+#   Formatted data frame
+#
+
 
 ParseRanked <- function(report.data) {
 
