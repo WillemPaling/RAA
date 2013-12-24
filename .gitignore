@@ -1,4 +1,6 @@
 .Rproj.user
+.Rbuildignore
+RAdobeAnalytics.Rproj
 .Rhistory
 .RData
 *.Rda
