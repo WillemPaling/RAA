@@ -20,7 +20,7 @@ ApiValidateReport <- function(report.description,interval.seconds=2,max.attempts
     queue.resp <- content(json.queue)
     
     # If we are in debug mode, save the output
-    if(AA.Debug==TRUE) {
+    if(RAA.Debug==TRUE) {
       print("Saving output as json.queue.validate.txt")
       sink("json.queue.validate.txt")
       cat(toJSON(queue.resp))

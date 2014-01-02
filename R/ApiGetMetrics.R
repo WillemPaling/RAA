@@ -20,7 +20,7 @@ ApiGetMetrics <- function(report.description,interval.seconds=2,max.attempts=5) 
     queue.resp <- content(json.queue)
     
     # If we are in debug mode, save the output
-    if(AA.Debug==TRUE) {
+    if(RAA.Debug==TRUE) {
       print("Saving output as json.queue.getmetrics.txt")
       sink("json.queue.getmetrics.txt")
       cat(toJSON(queue.resp))

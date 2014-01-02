@@ -1,6 +1,6 @@
 .Rproj.user
 .Rbuildignore
-RAdobeAnalytics.Rproj
+RAA.Rproj
 .Rhistory
 .RData
 *.Rda
@@ -11,3 +11,4 @@ json.response.txt
 json.queue.getmetrics.txt
 
 API14_BETA_test_calls.R
+*.Rproj

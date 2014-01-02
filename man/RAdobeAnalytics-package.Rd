@@ -1,6 +1,6 @@
-\name{RAdobeAnalytics-package}
-\alias{RAdobeAnalytics-package}
-\alias{RAdobeAnalytics}
+\name{RAA-package}
+\alias{RAA-package}
+\alias{RAA}
 \docType{package}
 \title{
 What the package does (short line)
@@ -12,7 +12,7 @@ More about what it does (maybe more than one line)
 }
 \details{
 \tabular{ll}{
-Package: \tab RAdobeAnalytics\cr
+Package: \tab RAA\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2013-12-19\cr

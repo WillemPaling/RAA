@@ -40,7 +40,7 @@ ApiGetReport <- function(report.id,interval.seconds=5,max.attempts=120) {
   print(paste("Received ",report.type," report.",sep=""))
 
   # If we are in debug mode, save the output
-  if(AA.Debug==TRUE) {
+  if(RAA.Debug==TRUE) {
     print("Saving output as json.reponse.txt")
     sink("json.response.txt")
     cat(toJSON(report.data))

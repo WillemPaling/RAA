@@ -1,4 +1,4 @@
-RAdobeAnalytics
+RAA
 ===============
 
 R client library for the Adobe Analytics 1.4 API - the API is currently in beta, and this library is in alpha! 

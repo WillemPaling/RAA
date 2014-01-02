@@ -1,6 +1,6 @@
-export(GetMetrics,QueueOvertime,JsonQueueReport,AA_Auth,AA_SetDebug)
+export(GetMetrics,QueueOvertime,JsonQueueReport,RAA_Auth,RAA_SetDebug)
 
-importFrom("jsonlite", toJSON, fromJSON)
+importFrom("jsonlite", toJSON, fromJSON, as.scalar)
 importFrom("plyr", ldply, quickdf, rbind.fill)
 importFrom("stringr", str_replace_all, str_count, str_split_fixed)
 importFrom("httr", add_headers, POST, content)

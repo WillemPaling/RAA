@@ -14,11 +14,11 @@ BuildHeader <- function() {
   #Create timestamp
   created.date <- format(Sys.time()-11*60*60, "%Y-%m-%dT%H:%M:%SZ")
   #Concatentate nonce, timestamp, shared secret, then sha1 then base64
-  nonce.create.secret <- paste(nonce, created.date, AA.Credentials[2], sep="")
+  nonce.create.secret <- paste(nonce, created.date, RAA.Credentials[2], sep="")
   sha.object <- digest(nonce.create.secret, algo="sha1", serialize=FALSE)
   password.digest <- base64encode(charToRaw(sha.object))
 
   #Build & Return Header 
-  return(paste('X-WSSE: UsernameToken Username=\"',AA.Credentials[1], '\"', ',', ' PasswordDigest=\"',password.digest, '\"', ',', ' Nonce=\"', nonce, '\"', ',', ' Created=\"', created.date, '\"', sep=""))
+  return(paste('X-WSSE: UsernameToken Username=\"',RAA.Credentials[1], '\"', ',', ' PasswordDigest=\"',password.digest, '\"', ',', ' Nonce=\"', nonce, '\"', ',', ' Created=\"', created.date, '\"', sep=""))
   
 }
