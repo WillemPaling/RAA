@@ -20,22 +20,19 @@ QueueOvertime <- function(reportsuite.id, date.from, date.to, metrics,
   # build JSON description
   report.description <- c()
   report.description$reportDescription <- c(data.frame(matrix(ncol=0, nrow=1)))
-  report.description$reportDescription$dateFrom <- date.from
-  report.description$reportDescription$dateTo <- date.from
-  report.description$reportDescription$reportSuiteID <- reportsuite.id
-  report.description$reportDescription$dateGranularity <- date.granularity
-  report.description$reportDescription$segment_id <- segment.id
-  report.description$reportDescription$anomalyDetection <- anomaly.detection
-  report.description$reportDescription$currentData <- data.current
-  report.description$reportDescription$expedite <- expedite
-  report.description$reportDescription$metrics = list(data.frame(id = metrics))
+  report.description$reportDescription$dateFrom <- jsonlite:::as.scalar(date.from)
+  report.description$reportDescription$dateTo <- jsonlite:::as.scalar(date.to)
+  report.description$reportDescription$reportSuiteID <- jsonlite:::as.scalar(reportsuite.id)
+  report.description$reportDescription$dateGranularity <- jsonlite:::as.scalar(date.granularity)
+  report.description$reportDescription$segment_id <- jsonlite:::as.scalar(segment.id)
+  report.description$reportDescription$anomalyDetection <- jsonlite:::as.scalar(anomaly.detection)
+  report.description$reportDescription$currentData <- jsonlite:::as.scalar(data.current)
+  report.description$reportDescription$expedite <- jsonlite:::as.scalar(expedite)
+  report.description$reportDescription$metrics = data.frame(id = metrics)
 
-  print(cat(toJSON(report.description)))
-  print("THIS METHOD NEEDS WORK!!! JSON NOT IN THE RIGHT FORMAT!")
+  report.id <- ApiQueueReport(report.description)
+  report.data <- ApiGetReport(report.id)
 
-  #report.id <- ApiQueueReport(report.description)
-  #report.data <- ApiGetReport(report.id)
-
-  #return(report.data) 
+  return(report.data) 
 
 } #End function bracket  
