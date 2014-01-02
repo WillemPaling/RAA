@@ -5,9 +5,9 @@
 utils::globalVariables("AA.Credentials")
 
 AA_Auth <- function(user.name, shared.secret, endpoint.url=""){
-  #Silence visible binding error
-  
-  AA.Credentials <- ""
+
+  AA_SetDebug(FALSE)
+  AA.Credentials <<- ""
   
   error.flag = 0
   if(str_count(user.name, ":") != 1){

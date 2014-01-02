@@ -13,6 +13,12 @@ ApiQueueReport <- function(report.description,interval.seconds=2,max.attempts=5)
   
   report.queued <- FALSE
   num.tries <- 0
+
+  if(typeof(report.description)!="character") {
+    report.description <- toJSON(report.description)
+  }
+  
+  print(report.description)
   
   while(report.queued==FALSE && num.tries < max.attempts){
     num.tries <- num.tries + 1

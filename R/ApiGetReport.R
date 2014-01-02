@@ -48,12 +48,17 @@ ApiGetReport <- function(report.id,interval.seconds=5,max.attempts=120) {
     save(report.data,file="report.data.Rda")
   }
 
-  return(switch(report.type,
-    ranked={ParseRanked(report.data)},
-    trended={ParseTrended(report.data)},
-    pathing={ParsePathing(report.data)},
-    fallout={ParseFallout(report.data)},
-    overtime={ParseOvertime(report.data)}
-  ))
-
+  # Check if there is any data to parse
+  if(length(report.data$report$data)>0) {
+    report.parsed = switch(report.type,
+      ranked={ParseRanked(report.data)},
+      trended={ParseTrended(report.data)},
+      pathing={ParsePathing(report.data)},
+      fallout={ParseFallout(report.data)},
+      overtime={ParseOvertime(report.data)}
+    )
+  } else {
+    print("Warning: Your report definition returned an empty data set.")
+    report.parsed = data.frame()
+  }
 }
