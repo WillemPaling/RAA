@@ -1,6 +1,6 @@
 #' QueueTrended
 #'
-#' Runs a Trended Report
+#' Helper function to run a Trended Report
 #'
 #' @param reportsuite.id report suite id
 #' @param date.from start date for the report (YYYY-MM-DD)
@@ -18,11 +18,17 @@
 #' @export
 
 QueueTrended <- function(reportsuite.id, date.from, date.to, metrics, elements,
+                        top="",start="",selected=list(),
                         date.granularity='day', segment.id='', anomaly.detection=FALSE,
                         data.current=FALSE, expedite=FALSE) {
   
   if(anomaly.detection==TRUE && length(elements)>1) {
     print("Warning: Anomaly detection only works for a single element.")
+    anomaly.detection <- FALSE
+  }
+
+  if(anomaly.detection==TRUE && date.granularity!='day') {
+    print("Warning: Anomaly detection only works with 'day' date granularity.")
     anomaly.detection <- FALSE
   }
 
@@ -38,8 +44,26 @@ QueueTrended <- function(reportsuite.id, date.from, date.to, metrics, elements,
   report.description$reportDescription$anomalyDetection <- jsonlite:::as.scalar(anomaly.detection)
   report.description$reportDescription$currentData <- jsonlite:::as.scalar(data.current)
   report.description$reportDescription$expedite <- jsonlite:::as.scalar(expedite)
-  report.description$reportDescription$elements = data.frame(id = elements)
   report.description$reportDescription$metrics = data.frame(id = metrics)
+
+  if(length(selected)>0) {
+    # build up each element with selections
+    elements.formatted <- list()
+    for(element in elements) {
+      if(length(selected[element])){
+        working.element <- list(id = jsonlite:::as.scalar(element), selected=selected[element][1][[1]])
+      }
+      if(length(elements.formatted)>0) {
+        elements.formatted <- rbind(elements.formatted,working.element)
+      } else {
+        elements.formatted <- working.element
+      }
+    }
+    report.description$reportDescription$elements <- elements.formatted
+  } else {
+    # just plug in the elements
+    report.description$reportDescription$elements <- data.frame(id = elements)
+  }
 
   report.id <- ApiQueueReport(report.description)
   report.data <- ApiGetReport(report.id)

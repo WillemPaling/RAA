@@ -1,6 +1,6 @@
 #' QueueOvertime
 #'
-#' Runs an OverTime Report
+#' Helper function to run an OverTime Report
 #'
 #' @param reportsuite.id report suite id
 #' @param date.from start date for the report (YYYY-MM-DD)

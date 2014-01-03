@@ -2,9 +2,10 @@
 \alias{QueueTrended}
 \title{QueueTrended}
 \usage{
-QueueTrended(reportsuite.id, date.from, date.to, metrics, elements,
-  date.granularity = "day", segment.id = "", anomaly.detection = FALSE,
-  data.current = FALSE, expedite = FALSE)
+QueueTrended(reportsuite.id, date.from, date.to, metrics, elements, top = "",
+  start = "", selected = list(), date.granularity = "day",
+  segment.id = "", anomaly.detection = FALSE, data.current = FALSE,
+  expedite = FALSE)
 }
 \arguments{
   \item{reportsuite.id}{report suite id}
@@ -38,6 +39,6 @@ QueueTrended(reportsuite.id, date.from, date.to, metrics, elements,
 Flat data frame containing datetimes and metric values
 }
 \description{
-Runs a Trended Report
+Helper function to run a Trended Report
 }
 

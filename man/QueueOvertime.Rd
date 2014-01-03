@@ -35,6 +35,6 @@ QueueOvertime(reportsuite.id, date.from, date.to, metrics,
 Flat data frame containing datetimes and metric values
 }
 \description{
-Runs an OverTime Report
+Helper function to run an OverTime Report
 }
 
