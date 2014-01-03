@@ -3,7 +3,7 @@
 \title{QueuePathing}
 \usage{
 QueuePathing(reportsuite.id, date.from, date.to, metric, element, pattern,
-  top = 10, start = 1, segment.id = "", expedite = FALSE)
+  top = 1000, start = 1, segment.id = "", expedite = FALSE)
 }
 \arguments{
   \item{reportsuite.id}{report suite id}
@@ -26,7 +26,7 @@ QueuePathing(reportsuite.id, date.from, date.to, metric, element, pattern,
   c("::anything::","::anything::","Home") will return the
   two previous pages leading to the home page.}
 
-  \item{top}{number of rows to return}
+  \item{top}{number of rows to return (defaults to 1000)}
 
   \item{start}{start row if you do not want to start at #1}
 

@@ -1,1 +1,135 @@
-{ "report" : { "type" : [ "trended" ], "elements" : [ { "id" : "page", "name" : "Page" }, { "id" : "browser", "name" : "Browser" } ], "reportSuite" : { "id" : [ "geometrixxapibeta" ], "name" : [ "geometrixxapibeta" ] }, "period" : [ "Wed. 25 Dec. 2013 - Tue. 31 Dec. 2013" ], "metrics" : [ { "id" : "visits", "name" : "Visits", "type" : "number", "decimals" : 0, "latency" : 4557, "current" : false }, { "id" : "uniquevisitors", "name" : "Unique Visitors", "type" : "number", "decimals" : 0, "latency" : 4557, "current" : false }, { "id" : "pageviews", "name" : "Page Views", "type" : "number", "decimals" : 0, "latency" : 4557, "current" : false } ], "data" : [ { "name" : "Wed. 25 Dec. 2013", "year" : 2013, "month" : 12, "day" : 25, "breakdown" : [ { "name" : "Home", "url" : "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html", "counts" : [ "903", "902", "925" ], "breakdown" : [  ], "breakdownTotal" : [ "903", "902", "925" ] } ], "breakdownTotal" : [ "1187", "1192", "3553" ] }, { "name" : "Thu. 26 Dec. 2013", "year" : 2013, "month" : 12, "day" : 26, "breakdown" : [ { "name" : "Home", "url" : "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html", "counts" : [ "864", "864", "887" ], "breakdown" : [  ], "breakdownTotal" : [ "864", "864", "887" ] } ], "breakdownTotal" : [ "1111", "1116", "3268" ] }, { "name" : "Fri. 27 Dec. 2013", "year" : 2013, "month" : 12, "day" : 27, "breakdown" : [ { "name" : "Home", "url" : "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html", "counts" : [ "916", "915", "931" ], "breakdown" : [  ], "breakdownTotal" : [ "916", "915", "931" ] } ], "breakdownTotal" : [ "1214", "1217", "3552" ] }, { "name" : "Sat. 28 Dec. 2013", "year" : 2013, "month" : 12, "day" : 28, "breakdown" : [ { "name" : "Home", "url" : "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html", "counts" : [ "573", "573", "581" ], "breakdown" : [  ], "breakdownTotal" : [ "573", "573", "581" ] } ], "breakdownTotal" : [ "754", "755", "2394" ] }, { "name" : "Sun. 29 Dec. 2013", "year" : 2013, "month" : 12, "day" : 29, "breakdown" : [ { "name" : "Home", "url" : "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html", "counts" : [ "549", "549", "557" ], "breakdown" : [  ], "breakdownTotal" : [ "549", "549", "557" ] } ], "breakdownTotal" : [ "762", "768", "2447" ] }, { "name" : "Mon. 30 Dec. 2013", "year" : 2013, "month" : 12, "day" : 30, "breakdown" : [ { "name" : "Home", "url" : "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html", "counts" : [ "949", "948", "967" ], "breakdown" : [  ], "breakdownTotal" : [ "949", "948", "967" ] } ], "breakdownTotal" : [ "1257", "1261", "3714" ] }, { "name" : "Tue. 31 Dec. 2013", "year" : 2013, "month" : 12, "day" : 31, "breakdown" : [ { "name" : "Home", "url" : "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html", "counts" : [ "894", "894", "916" ], "breakdown" : [  ], "breakdownTotal" : [ "894", "894", "916" ] } ], "breakdownTotal" : [ "1219", "1224", "3639" ] } ], "totals" : [ "7504", "7533", "22567" ], "version" : [ "1.4.beta5" ] }, "waitSeconds" : [ "1.815" ], "runSeconds" : [ "1.500" ] }
+{
+    "report": {
+        "type": ["trended"],
+        "elements": [{
+            "id": "page",
+            "name": "Page"
+        }, {
+            "id": "browser",
+            "name": "Browser"
+        }],
+        "reportSuite": {
+            "id": ["geometrixxapibeta"],
+            "name": ["geometrixxapibeta"]
+        },
+        "period": ["Wed. 25 Dec. 2013 - Tue. 31 Dec. 2013"],
+        "metrics": [{
+            "id": "visits",
+            "name": "Visits",
+            "type": "number",
+            "decimals": 0,
+            "latency": 1572,
+            "current": false
+        }, {
+            "id": "uniquevisitors",
+            "name": "Unique Visitors",
+            "type": "number",
+            "decimals": 0,
+            "latency": 1572,
+            "current": false
+        }, {
+            "id": "pageviews",
+            "name": "Page Views",
+            "type": "number",
+            "decimals": 0,
+            "latency": 1572,
+            "current": false
+        }],
+        "data": [{
+            "name": "Wed. 25 Dec. 2013",
+            "year": 2013,
+            "month": 12,
+            "day": 25,
+            "breakdown": [{
+                "name": "Home",
+                "url": "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html",
+                "counts": ["903", "902", "925"],
+                "breakdown": [],
+                "breakdownTotal": ["903", "902", "925"]
+            }],
+            "breakdownTotal": ["1187", "1192", "3553"]
+        }, {
+            "name": "Thu. 26 Dec. 2013",
+            "year": 2013,
+            "month": 12,
+            "day": 26,
+            "breakdown": [{
+                "name": "Home",
+                "url": "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html",
+                "counts": ["864", "864", "887"],
+                "breakdown": [],
+                "breakdownTotal": ["864", "864", "887"]
+            }],
+            "breakdownTotal": ["1111", "1116", "3268"]
+        }, {
+            "name": "Fri. 27 Dec. 2013",
+            "year": 2013,
+            "month": 12,
+            "day": 27,
+            "breakdown": [{
+                "name": "Home",
+                "url": "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html",
+                "counts": ["916", "915", "931"],
+                "breakdown": [],
+                "breakdownTotal": ["916", "915", "931"]
+            }],
+            "breakdownTotal": ["1214", "1217", "3552"]
+        }, {
+            "name": "Sat. 28 Dec. 2013",
+            "year": 2013,
+            "month": 12,
+            "day": 28,
+            "breakdown": [{
+                "name": "Home",
+                "url": "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html",
+                "counts": ["573", "573", "581"],
+                "breakdown": [],
+                "breakdownTotal": ["573", "573", "581"]
+            }],
+            "breakdownTotal": ["754", "755", "2394"]
+        }, {
+            "name": "Sun. 29 Dec. 2013",
+            "year": 2013,
+            "month": 12,
+            "day": 29,
+            "breakdown": [{
+                "name": "Home",
+                "url": "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html",
+                "counts": ["549", "549", "557"],
+                "breakdown": [],
+                "breakdownTotal": ["549", "549", "557"]
+            }],
+            "breakdownTotal": ["762", "768", "2447"]
+        }, {
+            "name": "Mon. 30 Dec. 2013",
+            "year": 2013,
+            "month": 12,
+            "day": 30,
+            "breakdown": [{
+                "name": "Home",
+                "url": "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html",
+                "counts": ["949", "948", "967"],
+                "breakdown": [],
+                "breakdownTotal": ["949", "948", "967"]
+            }],
+            "breakdownTotal": ["1257", "1261", "3714"]
+        }, {
+            "name": "Tue. 31 Dec. 2013",
+            "year": 2013,
+            "month": 12,
+            "day": 31,
+            "breakdown": [{
+                "name": "Home",
+                "url": "http://www.geometrixxoutdoors.com/content/geometrixx-outdoors/en.html",
+                "counts": ["894", "894", "916"],
+                "breakdown": [],
+                "breakdownTotal": ["894", "894", "916"]
+            }],
+            "breakdownTotal": ["1219", "1224", "3639"]
+        }],
+        "totals": ["7504", "7533", "22567"],
+        "version": ["1.4.beta5"]
+    },
+    "waitSeconds": ["1.201"],
+    "runSeconds": ["1.629"]
+}

@@ -11,7 +11,7 @@
 #' use "::anything::" as a wildcard. For example c("Home","::anything::","::anything::") will return all paths that start with the home page,
 #' c("::anything::","Home","::anything::") will return the previous and next pages from the home page, and
 #' c("::anything::","::anything::","Home") will return the two previous pages leading to the home page. 
-#' @param top number of rows to return
+#' @param top number of rows to return (defaults to 1000)
 #' @param start start row if you do not want to start at #1
 #' @param segment.id id of Adobe Analytics segment to retrieve the report for
 #' @param expedite set to TRUE to expedite the processing of this report
@@ -21,7 +21,7 @@
 #' @export
 
 QueuePathing <- function(reportsuite.id, date.from, date.to, metric, element, pattern,
-                        top=10, start=1,
+                        top=1000, start=1,
                         segment.id='', expedite=FALSE) {
   
   # build JSON description

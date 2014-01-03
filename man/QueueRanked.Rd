@@ -1,10 +1,9 @@
-\name{QueueTrended}
-\alias{QueueTrended}
-\title{QueueTrended}
+\name{QueueRanked}
+\alias{QueueRanked}
+\title{QueueRanked}
 \usage{
-QueueTrended(reportsuite.id, date.from, date.to, metrics, elements, top = 0,
-  start = 0, selected = list(), date.granularity = "day",
-  segment.id = "", anomaly.detection = FALSE, data.current = FALSE,
+QueueRanked(reportsuite.id, date.from, date.to, metrics, elements, top = 0,
+  start = 0, selected = list(), segment.id = "", data.current = FALSE,
   expedite = FALSE)
 }
 \arguments{
@@ -19,15 +18,15 @@ QueueTrended(reportsuite.id, date.from, date.to, metrics, elements, top = 0,
   \item{elements}{list of elements to include in the
   report}
 
-  \item{top}{number of rows to return}
+  \item{top}{number of elements to include (top X) - only
+  applies to the first element.}
 
-  \item{start}{start row if you do not want to start at #1}
+  \item{start}{start row if you do not want to start at #1
+  - only applies to the first element.}
 
   \item{selected}{list of specific items to include in the
-  report - e.g. list(page=c("Home","Search","About"))}
-
-  \item{date.granularity}{time granularity of the report
-  (year/month/week/day/hour), default to 'day'}
+  report - e.g. list(page=c("Home","Search","About")). This
+  appears to only work for the first element.}
 
   \item{segment.id}{id of Adobe Analytics segment to
   retrieve the report for}
@@ -46,6 +45,6 @@ QueueTrended(reportsuite.id, date.from, date.to, metrics, elements, top = 0,
 Flat data frame containing datetimes and metric values
 }
 \description{
-Helper function to run a Trended Report
+Helper function to run a Ranked Report
 }
 

@@ -1,16 +1,16 @@
-#' QueueTrended
+#' QueueRanked
 #'
-#' Helper function to run a Trended Report
+#' Helper function to run a Ranked Report
 #'
 #' @param reportsuite.id report suite id
 #' @param date.from start date for the report (YYYY-MM-DD)
 #' @param date.to end date for the report (YYYY-MM-DD)
 #' @param metrics list of metrics to include in the report
 #' @param elements list of elements to include in the report
-#' @param top number of rows to return
-#' @param start start row if you do not want to start at #1
-#' @param selected list of specific items to include in the report - e.g. list(page=c("Home","Search","About"))
-#' @param date.granularity time granularity of the report (year/month/week/day/hour), default to 'day'
+#' @param top number of elements to include (top X) - only applies to the first element.
+#' @param start start row if you do not want to start at #1 - only applies to the first element.
+#' @param selected list of specific items to include in the report - e.g. list(page=c("Home","Search","About")). 
+#' This appears to only work for the first element.
 #' @param segment.id id of Adobe Analytics segment to retrieve the report for
 #' @param anomaly.dection  set to TRUE to include forecast data (only valid for day granularity with small date ranges)
 #' @param data.current TRUE or FALSE - whether to include current data for reports that include today's date
@@ -20,20 +20,9 @@
 #'
 #' @export
 
-QueueTrended <- function(reportsuite.id, date.from, date.to, metrics, elements,
+QueueRanked <- function(reportsuite.id, date.from, date.to, metrics, elements,
                         top=0,start=0,selected=list(),
-                        date.granularity='day', segment.id='', anomaly.detection=FALSE,
-                        data.current=FALSE, expedite=FALSE) {
-  
-  if(anomaly.detection==TRUE && length(elements)>1) {
-    print("Warning: Anomaly detection will not be used, as it only works for a single element.")
-    anomaly.detection <- FALSE
-  }
-
-  if(anomaly.detection==TRUE && date.granularity!='day') {
-    print("Warning: Anomaly detection will not be used, as it only works with 'day' date granularity.")
-    anomaly.detection <- FALSE
-  }
+                        segment.id='', data.current=FALSE, expedite=FALSE) {
 
   # build JSON description
   # we have to use jsonlite:::as.scalar to force jsonlist not put strings into single-element arrays
@@ -42,7 +31,6 @@ QueueTrended <- function(reportsuite.id, date.from, date.to, metrics, elements,
   report.description$reportDescription$dateFrom <- jsonlite:::as.scalar(date.from)
   report.description$reportDescription$dateTo <- jsonlite:::as.scalar(date.to)
   report.description$reportDescription$reportSuiteID <- jsonlite:::as.scalar(reportsuite.id)
-  report.description$reportDescription$dateGranularity <- jsonlite:::as.scalar(date.granularity)
   if(top>0) { 
     report.description$reportDescription$top <- jsonlite:::as.scalar(top) 
   }
@@ -52,12 +40,6 @@ QueueTrended <- function(reportsuite.id, date.from, date.to, metrics, elements,
   if(segment.id!="") { 
     report.description$reportDescription$segment_id <- jsonlite:::as.scalar(segment.id) 
   }
-  if(anomaly.detection==TRUE) { 
-    report.description$reportDescription$anomalyDetection <- jsonlite:::as.scalar(anomaly.detection) 
-  }
-  if(data.current==TRUE) { 
-    report.description$reportDescription$currentData <- jsonlite:::as.scalar(data.current) 
-  }
   if(expedite==TRUE) { 
     report.description$reportDescription$expedite <- jsonlite:::as.scalar(expedite)
   }
@@ -66,9 +48,19 @@ QueueTrended <- function(reportsuite.id, date.from, date.to, metrics, elements,
   if(length(selected)>0) {
     # build up each element with selections
     elements.formatted <- list()
+    i <- 0
     for(element in elements) {
+      i <- i + 1
       if(length(selected[element])){
-        working.element <- list(id = jsonlite:::as.scalar(element), selected=selected[element][1][[1]])
+        if(i==1) {
+          # put in top and startingWith for the first element only
+          working.element = list(id = jsonlite:::as.scalar(element), 
+                                      top = jsonlite:::as.scalar(top), 
+                                      startingWith = jsonlite:::as.scalar(start), 
+                                      selected = selected[element][1][[1]])
+        } else {
+          working.element <- list(id = jsonlite:::as.scalar(element), selected=selected[element][1][[1]])
+        }
       }
       if(length(elements.formatted)>0) {
         elements.formatted <- rbind(elements.formatted,working.element)
