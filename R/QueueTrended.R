@@ -1,11 +1,12 @@
-#' QueueOvertime
+#' QueueTrended
 #'
-#' Runs an OverTime Report
+#' Runs a Trended Report
 #'
 #' @param reportsuite.id report suite id
 #' @param date.from start date for the report (YYYY-MM-DD)
 #' @param date.to end date for the report (YYYY-MM-DD)
 #' @param metrics list of metrics to include in the report
+#' @param elements list of elements to include in the report
 #' @param date.granularity time granularity of the report (year/month/week/day/hour), default to 'day'
 #' @param segment.id id of Adobe Analytics segment to retrieve the report for
 #' @param anomaly.dection  set to TRUE to include forecast data (only valid for day granularity with small date ranges)
@@ -16,10 +17,15 @@
 #'
 #' @export
 
-QueueOvertime <- function(reportsuite.id, date.from, date.to, metrics,
+QueueTrended <- function(reportsuite.id, date.from, date.to, metrics, elements,
                         date.granularity='day', segment.id='', anomaly.detection=FALSE,
                         data.current=FALSE, expedite=FALSE) {
   
+  if(anomaly.detection==TRUE && length(elements)>1) {
+    print("Warning: Anomaly detection only works for a single element.")
+    anomaly.detection <- FALSE
+  }
+
   # build JSON description
   # we have to use jsonlite:::as.scalar to force jsonlist not put strings into single-element arrays
   report.description <- c()
@@ -32,6 +38,7 @@ QueueOvertime <- function(reportsuite.id, date.from, date.to, metrics,
   report.description$reportDescription$anomalyDetection <- jsonlite:::as.scalar(anomaly.detection)
   report.description$reportDescription$currentData <- jsonlite:::as.scalar(data.current)
   report.description$reportDescription$expedite <- jsonlite:::as.scalar(expedite)
+  report.description$reportDescription$elements = data.frame(id = elements)
   report.description$reportDescription$metrics = data.frame(id = metrics)
 
   report.id <- ApiQueueReport(report.description)

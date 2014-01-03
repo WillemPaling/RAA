@@ -1,13 +1,17 @@
-# ApiGetReport - Internal function - retrieves specified report from Adobe Analytics API, if it is not available, it tries again after interval.seconds, up to max.attempts times
-#
-# Args:
-#   report.id: Report ID returned from the API by Report.Queue
-#   interval.seconds: Time to wait between attempts to get the report (defaults to 5 seconds)
-#   max.attempts: Max number of attempts to make to retrieve the report (defaults to 120)
-#
-# Returns:
-#   Formatted data frame containing the report
-#
+#' ApiGetReport
+#'
+#' Internal function - retrieves specified report from Adobe Analytics API, 
+#' if it is not available, it tries again after interval.seconds, up to max.attempts times
+#'
+#' @param report.id Report ID returned from the API by Report.Queue
+#' @param interval.seconds Time to wait between attempts to get the report (defaults to 5 seconds)
+#' @param max.attempts Max number of attempts to make to retrieve the report (defaults to 120)
+#'
+#' @imports httr content
+#' @imports jsonlite fromJSON
+#' @imports jsonlite toJSON
+#'
+#' @return Formatted data frame containing the report
 
 ApiGetReport <- function(report.id,interval.seconds=5,max.attempts=120) {
   
@@ -61,4 +65,12 @@ ApiGetReport <- function(report.id,interval.seconds=5,max.attempts=120) {
     print("Warning: Your report definition returned an empty data set.")
     report.parsed = data.frame()
   }
+
+  # check if we have a segment ID and append it to the frame for visibility
+  if(!is.null(report.data[["report"]][["segmentID"]])) {
+    report.parsed$segment.id <- report.data$report$segmentID
+  }
+
+  return(report.parsed)
+
 }

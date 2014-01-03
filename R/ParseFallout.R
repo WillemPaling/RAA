@@ -1,11 +1,10 @@
-# ParseFallout - Internal Function - Parses a fallout report returned from the API
-# Args:
-#   report.data: jsonlite formatted data frame of report data returned from the API
-#
-# Returns:
-#   Formatted data frame
-#
-
+#' ParseFallout
+#'
+#' Internal Function - Parses a fallout report returned from the API
+#'
+#' @param report.data jsonlite formatted data frame of report data returned from the API
+#'
+#' @return Formatted data frame
 
 ParseFallout <- function(report.data) {
 

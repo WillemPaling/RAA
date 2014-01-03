@@ -1,13 +1,16 @@
-# ApiQueueReport - Internal function - Calls the API and attempts to queue a report. If we get a 500 error, it tries again. If we get an error, it tries again after interval.seconds, up to max.attempts times
-#
-# Args:
-#   report.description: Report ID returned from the API by Report.Queue
-#   interval.seconds: Time to wait between attempts to get the report (defaults to 2 seconds)
-#   max.attempts: Max number of attempts to make to retrieve the report (defaults to 5)
-#
-# Returns:
-#   Report id (int)
-#
+#' ApiQueueReport
+#'
+#' Internal function - Internal function - Calls the API and attempts to queue a report. 
+#' If we get a 500 error, it tries again. If we get an error, it tries again after interval.seconds, up to max.attempts times
+#'
+#' @param report.description JSON report description
+#' @param interval.seconds Time to wait between attempts to get the report (defaults to 2 seconds)
+#' @param max.attempts Max number of attempts to make to retrieve the report (defaults to 5)
+#'
+#' @imports httr content
+#' @imports jsonlite toJSON
+#'
+#' @return Report id (int)
 
 ApiQueueReport <- function(report.description,interval.seconds=2,max.attempts=5) {
   

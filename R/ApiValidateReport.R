@@ -1,16 +1,18 @@
-# ApiValidateReport - Internal function - Calls the API and attempts to validate a report description.
-#
-# Args:
-#   report.description: JSON report description
-#   interval.seconds: Time to wait between attempts to get the report (defaults to 2 seconds)
-#   max.attempts: Max number of attempts to make to retrieve the report (defaults to 5)
-#
-# Returns:
-#   TRUE/FALSE depending on whether the report is valid or not
-#
+#' ApiValidateReport
+#'
+#' Internal function - Calls the API and attempts to validate a report description.
+#'
+#' @param report.description JSON report description
+#' @param interval.seconds Time to wait between attempts to get the report (defaults to 2 seconds)
+#' @param max.attempts Max number of attempts to make to retrieve the report (defaults to 5)
+#'
+#' @imports httr content
+#' @imports jsonlite toJSON
+#'
+#' @return TRUE/FALSE depending on whether the report is valid or not
 
 ApiValidateReport <- function(report.description,interval.seconds=2,max.attempts=5) {
-  
+
   report.validated <- FALSE
   num.tries <- 0
   

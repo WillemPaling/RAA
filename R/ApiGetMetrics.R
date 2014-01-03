@@ -1,13 +1,15 @@
-# ApiGetMetrics - Internal function - Calls the API and gets valid metrics for specified params
-#
-# Args:
-#   report.description: JSON report description
-#   interval.seconds: Time to wait between attempts to get the report (defaults to 2 seconds)
-#   max.attempts: Max number of attempts to make to retrieve the report (defaults to 5)
-#
-# Returns:
-#   List of valid metrics
-#
+#' ApiGetMetrics
+#'
+#' Internal function - Calls the API and gets valid metrics for specified params
+#'
+#' @param report.description JSON report description
+#' @param interval.seconds Time to wait between attempts to get the report (defaults to 2 seconds)
+#' @param max.attempts Max number of attempts to make to retrieve the report (defaults to 5)
+#'
+#' @imports httr content
+#' @imports jsonlite toJSON
+#'
+#' @return list of valid metrics
 
 ApiGetMetrics <- function(report.description,interval.seconds=2,max.attempts=5) {
   

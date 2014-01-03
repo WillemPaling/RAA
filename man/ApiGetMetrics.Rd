@@ -1,0 +1,23 @@
+\name{ApiGetMetrics}
+\alias{ApiGetMetrics}
+\title{ApiGetMetrics}
+\usage{
+ApiGetMetrics(report.description, interval.seconds = 2, max.attempts = 5)
+}
+\arguments{
+  \item{report.description}{JSON report description}
+
+  \item{interval.seconds}{Time to wait between attempts to
+  get the report (defaults to 2 seconds)}
+
+  \item{max.attempts}{Max number of attempts to make to
+  retrieve the report (defaults to 5)}
+}
+\value{
+list of valid metrics
+}
+\description{
+Internal function - Calls the API and gets valid metrics
+for specified params
+}
+

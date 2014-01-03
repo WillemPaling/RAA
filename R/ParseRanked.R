@@ -1,11 +1,12 @@
-# ParseRanked - Internal Function - Parses a ranked report returned from the API
-# Args:
-#   report.data: jsonlite formatted data frame of report data returned from the API
-#
-# Returns:
-#   Formatted data frame
-#
-
+#' ParseRanked
+#'
+#' Internal Function - Parses a ranked report returned from the API
+#'
+#' @param report.data jsonlite formatted data frame of report data returned from the API
+#'
+#' @imports plry ldply
+#'
+#' @return Formatted data frame
 
 ParseRanked <- function(report.data) {
 

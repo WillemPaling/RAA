@@ -1,24 +1,25 @@
-# BuildHeader - Internal function - Build Header for REST API call. This is redundant, we should be using OAUTH.
-#
-# Args:
-#   NONE
-#
-# Returns:
-#   Header string for the old API auth method.
-#
+#' BuildHeader
+#'
+#' Internal function - Build Header for REST API call. This is redundant, we should be using OAUTH.
+#'
+#' @imports digest digest
+#' @imports base64enc base64encode
+#'
+#' @return Header string for the old API auth method.
 
 BuildHeader <- function() {
-  print("BuildHeader.R - THIS AUTH METHOD IS REDUNDANT, SHOULD BE USING OAUTH")
+  
+  print("Building Legacy Auth Headers: This method is deprecated. If possible, use OAUTH.")
   #Create nonce
   nonce <- as.character(as.numeric(Sys.time()))
   #Create timestamp
   created.date <- format(Sys.time()-11*60*60, "%Y-%m-%dT%H:%M:%SZ")
   #Concatentate nonce, timestamp, shared secret, then sha1 then base64
-  nonce.create.secret <- paste(nonce, created.date, RAA.Credentials[2], sep="")
+  nonce.create.secret <- paste(nonce, created.date, RAA.Credentials$secret, sep="")
   sha.object <- digest(nonce.create.secret, algo="sha1", serialize=FALSE)
   password.digest <- base64encode(charToRaw(sha.object))
 
   #Build & Return Header 
-  return(paste('X-WSSE: UsernameToken Username=\"',RAA.Credentials[1], '\"', ',', ' PasswordDigest=\"',password.digest, '\"', ',', ' Nonce=\"', nonce, '\"', ',', ' Created=\"', created.date, '\"', sep=""))
+  return(paste('X-WSSE: UsernameToken Username=\"',RAA.Credentials$key, '\"', ',', ' PasswordDigest=\"',password.digest, '\"', ',', ' Nonce=\"', nonce, '\"', ',', ' Created=\"', created.date, '\"', sep=""))
   
 }

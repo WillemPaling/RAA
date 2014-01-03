@@ -1,11 +1,10 @@
-# ParseTrended - Internal Function - Parses a trended report returned from the API
-# Args:
-#   report.data: jsonlite formatted data frame of report data returned from the API
-#
-# Returns:
-#   Formatted data frame
-#
-
+#' ParseTrended
+#'
+#' Internal Function - Parses a trended report returned from the API
+#'
+#' @param report.data jsonlite formatted data frame of report data returned from the API
+#'
+#' @return Formatted data frame
 
 ParseTrended <- function(report.data) {
 
@@ -21,8 +20,40 @@ ParseTrended <- function(report.data) {
   # We've essentially got a ranked report for each date
   for(i in 1:(nrow(data))) {
 
-    temp <- BuildInnerBreakdownsRecursively(data[i,"breakdown"][[1]],elements,metrics,1,c())
+    if(length(elements)>1){
+      # if we have multiple elements, then build inner breakdowns
+      temp <- BuildInnerBreakdownsRecursively(data[i,"breakdown"][[1]],elements,metrics,1,c())
+    } else {
+      # if we have just one element, then we just process this, as we may have anomaly detection
+      temp <- data[i,"breakdown"][[1]]
 
+      counts.df <- ldply(temp$counts)
+      names(counts.df) <- metrics #assign names to counts.df
+
+      # check if we have anomaly detection
+      if("forecasts" %in% colnames(temp)) {
+        forecasts.df <- ldply(temp$forecasts)
+        names(forecasts.df) <- paste("forecast.",metrics,sep="")
+        counts.df <- cbind(counts.df,forecasts.df)
+      }
+
+      if("upperBounds" %in% colnames(temp)) {
+        upperBounds.df <- ldply(temp$upperBounds)
+        names(upperBounds.df) <- paste("upperBound.",metrics,sep="")
+        counts.df <- cbind(counts.df,upperBounds.df)
+      }
+
+      if("lowerBounds" %in% colnames(temp)) {
+        lowerBounds.df <- ldply(temp$lowerBounds)
+        names(lowerBounds.df) <- paste("lowerBound.",metrics,sep="")
+        counts.df <- cbind(counts.df,lowerBounds.df)
+      }
+
+      drops <- c("counts","forecasts","upperBounds","lowerBounds")
+      temp <- temp[,!(names(temp) %in% drops)]
+      temp <- cbind(temp,counts.df)
+    }
+    
     # build out the date columns and bind them to the left of the data frame
     date.df <- data.frame(matrix(NA, nrow = nrow(temp), ncol = 5))
     names(date.df) <- c("name","datetime","year","month","day")

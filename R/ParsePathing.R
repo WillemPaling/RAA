@@ -1,11 +1,12 @@
-# ParsePathing - Internal Function - Parses a pathing report returned from the API
-# Args:
-#   report.data: jsonlite formatted data frame of report data returned from the API
-#
-# Returns:
-#   Formatted data frame
-#
-
+#' ParsePathing
+#'
+#' Internal Function - Parses a pathing report returned from the API
+#'
+#' @param report.data jsonlite formatted data frame of report data returned from the API
+#'
+#' @imports plry ldply
+#'
+#' @return Formatted data frame
 
 ParsePathing <- function(report.data) {
 

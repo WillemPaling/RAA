@@ -1,10 +1,12 @@
-# ParseOvertime - Internal Function - Parses an overtime report returned from the API
-# Args:
-#   report.data: jsonlite formatted data frame of report data returned from the API
-#
-# Returns:
-#   Formatted data frame
-#
+#' ParseOvertime
+#'
+#' Internal Function - Parses an overtime report returned from the API
+#'
+#' @param report.data jsonlite formatted data frame of report data returned from the API
+#'
+#' @imports plry ldply
+#'
+#' @return Formatted data frame
 
 ParseOvertime <- function(report.data) {
 
@@ -25,6 +27,31 @@ ParseOvertime <- function(report.data) {
 
   drops <- c("counts")
   rows.df <- data[,!(names(data) %in% drops)]
+
+  # check if we have anomaly detection
+  if("forecasts" %in% colnames(data)) {
+    forecasts.df <- ldply(data$forecasts)
+    names(forecasts.df) <- paste("forecast.",metrics,sep="")
+    counts.df <- cbind(counts.df,forecasts.df)
+    drops <- c("forecasts")
+    rows.df <- rows.df[,!(names(rows.df) %in% drops)]
+  }
+
+  if("upperBounds" %in% colnames(data)) {
+    upperBounds.df <- ldply(data$upperBounds)
+    names(upperBounds.df) <- paste("upperBound.",metrics,sep="")
+    counts.df <- cbind(counts.df,upperBounds.df)
+    drops <- c("upperBounds")
+    rows.df <- rows.df[,!(names(rows.df) %in% drops)]
+  }
+
+  if("lowerBounds" %in% colnames(data)) {
+    lowerBounds.df <- ldply(data$lowerBounds)
+    names(lowerBounds.df) <- paste("lowerBound.",metrics,sep="")
+    counts.df <- cbind(counts.df,lowerBounds.df)
+    drops <- c("lowerBounds")
+    rows.df <- rows.df[,!(names(rows.df) %in% drops)]
+  }
 
   formatted.df <- cbind(datetime,rows.df, counts.df)
 

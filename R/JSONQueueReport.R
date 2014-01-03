@@ -1,10 +1,12 @@
-# JsonQueueReport - Internal Function - Generic interface to validate, queue and retrieve a report from the API
-# Args:
-#   report.description: JSON report description
-#
-# Returns:
-#   Formatted data frame
-#
+#' JsonQueueReport
+#'
+#' Generic interface to validate, queue and retrieve a report from the API
+#'
+#' @param report.description JSON report description
+#'
+#' @return Formatted data frame
+#'
+#' @export
 
 JsonQueueReport <- function(report.description) {
 
