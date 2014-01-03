@@ -11,5 +11,4 @@ RAA_SetDebug <- function(debug.mode = TRUE){
   if(RAA.Debug) {
     print(paste("DEBUG MODE: ",debug.mode))
   }
-  
 }

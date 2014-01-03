@@ -18,4 +18,13 @@ HTTR response object
 Internal Function - Build generic POST request for Adobe
 Analytics API
 }
+\seealso{
+Other internal: \code{\link{ApiGetMetrics}};
+\code{\link{ApiGetReport}}; \code{\link{ApiQueueReport}};
+\code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
+\code{\link{BuildInnerBreakdownsRecursively}};
+\code{\link{BuildURL}}; \code{\link{ParseFallout}};
+\code{\link{ParseOvertime}}; \code{\link{ParsePathing}};
+\code{\link{ParseRanked}}; \code{\link{ParseTrended}}
+}
 

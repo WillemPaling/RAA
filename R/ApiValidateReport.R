@@ -6,10 +6,13 @@
 #' @param interval.seconds Time to wait between attempts to get the report (defaults to 2 seconds)
 #' @param max.attempts Max number of attempts to make to retrieve the report (defaults to 5)
 #'
-#' @imports httr content
-#' @imports jsonlite toJSON
+#' @importFrom httr content
+#' @importFrom jsonlite toJSON
 #'
 #' @return TRUE/FALSE depending on whether the report is valid or not
+#'
+#' @family internal
+#'
 
 ApiValidateReport <- function(report.description,interval.seconds=2,max.attempts=5) {
 

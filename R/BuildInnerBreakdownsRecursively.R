@@ -11,9 +11,12 @@
 #' (yes, I use some for loops here, if anyone can find a better way to do this with hierarchical data, please submit a pull request)
 #' @param date.range date range for the report, these columns are added if specified
 #'
-#' @imports plry ldply
+#' @importFrom plyr ldply
 #'
 #' @return Flat data frame containing all key report data
+#'
+#' @family internal
+#'
 
 BuildInnerBreakdownsRecursively <- function(parent.element,elements,metrics,
                                             current.recursion.level,context,accumulator=data.frame(),
@@ -39,8 +42,6 @@ BuildInnerBreakdownsRecursively <- function(parent.element,elements,metrics,
       
       # we are at the lowest level
       # build our list of metrics
-      
-      #print(parent.element)
       working.metrics <- ldply(working.element$counts)
       names(working.metrics) <- metrics
       

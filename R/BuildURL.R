@@ -5,6 +5,9 @@
 #' @param method Adobe Analytics API method
 #'
 #' @return URL string (concatenation of endpoint, method and access key)
+#'
+#' @family internal
+#'
 
 BuildURL <- function(method){
   #Get endpoint from RAA.Credentials position 3

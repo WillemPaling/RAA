@@ -4,9 +4,12 @@
 #'
 #' @param report.data jsonlite formatted data frame of report data returned from the API
 #'
-#' @imports plry ldply
+#' @importFrom plyr ldply
 #'
 #' @return Formatted data frame
+#'
+#' @family internal
+#'
 
 ParseRanked <- function(report.data) {
 

@@ -5,6 +5,9 @@
 #' @param report.data jsonlite formatted data frame of report data returned from the API
 #'
 #' @return Formatted data frame
+#'
+#' @family internal
+#'
 
 ParseTrended <- function(report.data) {
 

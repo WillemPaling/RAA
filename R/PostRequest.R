@@ -5,10 +5,13 @@
 #' @param method Adobe Analytics API method (Report.Queue, Report.Get etc)
 #' @param body body of post request, same usage as for HTTR POST()
 #'
-#' @imports httr POST
-#' @imports httr add_headers
+#' @importFrom httr POST
+#' @importFrom httr add_headers
 #'
 #' @return HTTR response object
+#'
+#' @family internal
+#'
 
 PostRequest <- function(method,body=NULL){
 

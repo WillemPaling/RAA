@@ -9,9 +9,11 @@
 #' future sessions, specify a file here. The method checks for the existence of the file and uses that if available.
 #' @param auth.method defaults to OAUTH2, can be set to 'legacy' to use the older () username:company and shared secret method.
 #'
-#' @imports httr oauth_app
-#' @imports httr oauth_endpoint
-#' @imports httr oauth2.0_token
+#' @importFrom httr oauth_app
+#' @importFrom httr oauth_endpoint
+#' @importFrom httr oauth2.0_token
+#' @importFrom stringr str_count
+#' @importFrom stringr str_split_fixed
 #'
 #' @export
 

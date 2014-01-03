@@ -19,6 +19,13 @@ QueueTrended(reportsuite.id, date.from, date.to, metrics, elements, top = "",
   \item{elements}{list of elements to include in the
   report}
 
+  \item{top}{number of rows to return}
+
+  \item{start}{start row if you do not want to start at #1}
+
+  \item{selected}{list of specific items to include in the
+  report - e.g. list(page=c("Home","Search","About"))}
+
   \item{date.granularity}{time granularity of the report
   (year/month/week/day/hour), default to 'day'}
 

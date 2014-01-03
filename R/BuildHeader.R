@@ -2,10 +2,13 @@
 #'
 #' Internal function - Build Header for REST API call. This is redundant, we should be using OAUTH.
 #'
-#' @imports digest digest
-#' @imports base64enc base64encode
+#' @importFrom digest digest
+#' @importFrom base64enc base64encode
 #'
 #' @return Header string for the old API auth method.
+#'
+#' @family internal
+#'
 
 BuildHeader <- function() {
   

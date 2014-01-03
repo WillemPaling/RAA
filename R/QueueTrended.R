@@ -7,6 +7,9 @@
 #' @param date.to end date for the report (YYYY-MM-DD)
 #' @param metrics list of metrics to include in the report
 #' @param elements list of elements to include in the report
+#' @param top number of rows to return
+#' @param start start row if you do not want to start at #1
+#' @param selected list of specific items to include in the report - e.g. list(page=c("Home","Search","About"))
 #' @param date.granularity time granularity of the report (year/month/week/day/hour), default to 'day'
 #' @param segment.id id of Adobe Analytics segment to retrieve the report for
 #' @param anomaly.dection  set to TRUE to include forecast data (only valid for day granularity with small date ranges)
@@ -23,12 +26,12 @@ QueueTrended <- function(reportsuite.id, date.from, date.to, metrics, elements,
                         data.current=FALSE, expedite=FALSE) {
   
   if(anomaly.detection==TRUE && length(elements)>1) {
-    print("Warning: Anomaly detection only works for a single element.")
+    print("Warning: Anomaly detection will not be used, as it only works for a single element.")
     anomaly.detection <- FALSE
   }
 
   if(anomaly.detection==TRUE && date.granularity!='day') {
-    print("Warning: Anomaly detection only works with 'day' date granularity.")
+    print("Warning: Anomaly detection will not be used, as it only works with 'day' date granularity.")
     anomaly.detection <- FALSE
   }
 
@@ -40,10 +43,24 @@ QueueTrended <- function(reportsuite.id, date.from, date.to, metrics, elements,
   report.description$reportDescription$dateTo <- jsonlite:::as.scalar(date.to)
   report.description$reportDescription$reportSuiteID <- jsonlite:::as.scalar(reportsuite.id)
   report.description$reportDescription$dateGranularity <- jsonlite:::as.scalar(date.granularity)
-  report.description$reportDescription$segment_id <- jsonlite:::as.scalar(segment.id)
-  report.description$reportDescription$anomalyDetection <- jsonlite:::as.scalar(anomaly.detection)
-  report.description$reportDescription$currentData <- jsonlite:::as.scalar(data.current)
-  report.description$reportDescription$expedite <- jsonlite:::as.scalar(expedite)
+  if(top!="") { 
+    report.description$reportDescription$top <- jsonlite:::as.scalar(top) 
+  }
+  if(start!="") { 
+    report.description$reportDescription$start <- jsonlite:::as.scalar(start) 
+  }
+  if(segment.id!="") { 
+    report.description$reportDescription$segment_id <- jsonlite:::as.scalar(segment.id) 
+  }
+  if(anomaly.detection==TRUE) { 
+    report.description$reportDescription$anomalyDetection <- jsonlite:::as.scalar(anomaly.detection) 
+  }
+  if(anomaly.detection==TRUE) { 
+    report.description$reportDescription$currentData <- jsonlite:::as.scalar(data.current) 
+  }
+  if(expedite==TRUE) { 
+    report.description$reportDescription$expedite <- jsonlite:::as.scalar(expedite)
+  }
   report.description$reportDescription$metrics = data.frame(id = metrics)
 
   if(length(selected)>0) {

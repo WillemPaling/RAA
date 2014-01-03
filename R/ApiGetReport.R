@@ -7,11 +7,14 @@
 #' @param interval.seconds Time to wait between attempts to get the report (defaults to 5 seconds)
 #' @param max.attempts Max number of attempts to make to retrieve the report (defaults to 120)
 #'
-#' @imports httr content
-#' @imports jsonlite fromJSON
-#' @imports jsonlite toJSON
+#' @importFrom httr content
+#' @importFrom jsonlite fromJSON
+#' @importFrom jsonlite toJSON
 #'
 #' @return Formatted data frame containing the report
+#'
+#' @family internal
+#'
 
 ApiGetReport <- function(report.id,interval.seconds=5,max.attempts=120) {
   

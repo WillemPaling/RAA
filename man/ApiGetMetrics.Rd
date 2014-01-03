@@ -20,4 +20,14 @@ list of valid metrics
 Internal function - Calls the API and gets valid metrics
 for specified params
 }
+\seealso{
+Other internal: \code{\link{ApiGetReport}};
+\code{\link{ApiQueueReport}};
+\code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
+\code{\link{BuildInnerBreakdownsRecursively}};
+\code{\link{BuildURL}}; \code{\link{ParseFallout}};
+\code{\link{ParseOvertime}}; \code{\link{ParsePathing}};
+\code{\link{ParseRanked}}; \code{\link{ParseTrended}};
+\code{\link{PostRequest}}
+}
 
