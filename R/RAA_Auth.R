@@ -41,7 +41,15 @@ RAA_Auth <- function(key, secret, endpoint.url="", token.file="", auth.method="O
       aa.app <- oauth_app("RAA", key, secret)
       aa.cred <- oauth2.0_token(aa.api, aa.app, scope="ReportSuite Report")
 
-      RAA.Credentials <<- list(endpoint.url=endpoint.url,auth.method=auth.method,aa.cred)
+      print(aa.cred)
+
+      RAA.Credentials <<- list(endpoint.url=endpoint.url,
+                               auth.method=auth.method,
+                               access_token=aa.cred$access_token,
+                               scope=aa.cred$scope,
+                               client_id=aa.cred$client_id,
+                               expires=aa.cred$expires
+                               )
 
       if(nchar(token.file)) {
         RAA.storedcredentials <- RAA.Credentials
