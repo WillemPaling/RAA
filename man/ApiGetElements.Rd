@@ -1,9 +1,9 @@
-\name{ApiValidateReport}
-\alias{ApiValidateReport}
-\title{ApiValidateReport}
+\name{ApiGetElements}
+\alias{ApiGetElements}
+\title{ApiGetELements}
 \usage{
-ApiValidateReport(report.description, interval.seconds = 2,
-  max.attempts = 5)
+ApiGetElements(report.description = "", reportsuite.id = "",
+  interval.seconds = 2, max.attempts = 5)
 }
 \arguments{
   \item{report.description}{JSON report description}
@@ -15,16 +15,16 @@ ApiValidateReport(report.description, interval.seconds = 2,
   retrieve the report (defaults to 5)}
 }
 \value{
-TRUE/FALSE depending on whether the report is valid or not
+list of valid elements
 }
 \description{
-Internal function - Calls the API and attempts to validate
-a report description.
+Internal function - Calls the API and gets valid elements
+for specified params
 }
 \seealso{
-Other internal: \code{\link{ApiGetElements}};
-\code{\link{ApiGetMetrics}}; \code{\link{ApiGetReport}};
-\code{\link{ApiQueueReport}}; \code{\link{BuildHeader}};
+Other internal: \code{\link{ApiGetMetrics}};
+\code{\link{ApiGetReport}}; \code{\link{ApiQueueReport}};
+\code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};
 \code{\link{BuildURL}}; \code{\link{ParseFallout}};
 \code{\link{ParseOvertime}}; \code{\link{ParsePathing}};

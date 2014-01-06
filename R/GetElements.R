@@ -1,23 +1,23 @@
-#' GetMetrics
+#' GetElements
 #'
-#' Gets valid metrics for current user, valid with optionally specified existing metrics, elements and date granularity
+#' Gets valid elements for current user, valid with optionally specified existing metrics, elements and date granularity
 #'
 #' @param reportsuite.id report suite id
 #' @param metrics list of existing metrics you want to use in combination with an additional metric
 #' @param elements list of existing elements you want to use in combination with an additional metric
 #' @param date.granularity granularity that you want to combine with an additional metric
 #'
-#' @return List of valid metrics
+#' @return List of valid elements
 #'
 #' @export
 
-GetMetrics <- function(reportsuite.id, metrics=c(), elements=c(), date.granularity='') {
+GetElements <- function(reportsuite.id, metrics=c(), elements=c(), date.granularity='') {
   
   report.description <- c()
   report.description$reportSuiteID <- jsonlite:::as.scalar(reportsuite.id)
 
   if(length(metrics)>0) { 
-    report.description$reportDescription$existingMetrics <- metrics
+    report.description$reportDescription$existingElements <- metrics
   }
   if(length(elements)>0) { 
     report.description$reportDescription$existingElements <- elements
@@ -26,8 +26,8 @@ GetMetrics <- function(reportsuite.id, metrics=c(), elements=c(), date.granulari
     report.description$reportDescription$dateGranularity <- jsonlite:::as.scalar(date.granularity) 
   }
 
-  valid.metrics <- ApiGetMetrics(report.description=toJSON(report.description))
+  valid.elements <- ApiGetElements(report.description=toJSON(report.description))
 
-  return(valid.metrics)
+  return(valid.elements)
 
 }

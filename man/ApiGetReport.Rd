@@ -23,8 +23,8 @@ Analytics API, if it is not available, it tries again after
 interval.seconds, up to max.attempts times
 }
 \seealso{
-Other internal: \code{\link{ApiGetMetrics}};
-\code{\link{ApiQueueReport}};
+Other internal: \code{\link{ApiGetElements}};
+\code{\link{ApiGetMetrics}}; \code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};
 \code{\link{BuildURL}}; \code{\link{ParseFallout}};

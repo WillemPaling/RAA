@@ -1,3 +1,4 @@
+export(GetElements)
 export(GetMetrics)
 export(JsonQueueReport)
 export(QueueFallout)

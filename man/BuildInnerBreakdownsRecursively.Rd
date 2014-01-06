@@ -38,8 +38,9 @@ Internal function - Calls the API and attempts to validate
 a report description.
 }
 \seealso{
-Other internal: \code{\link{ApiGetMetrics}};
-\code{\link{ApiGetReport}}; \code{\link{ApiQueueReport}};
+Other internal: \code{\link{ApiGetElements}};
+\code{\link{ApiGetMetrics}}; \code{\link{ApiGetReport}};
+\code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildURL}}; \code{\link{ParseFallout}};
 \code{\link{ParseOvertime}}; \code{\link{ParsePathing}};

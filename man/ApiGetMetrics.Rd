@@ -2,7 +2,8 @@
 \alias{ApiGetMetrics}
 \title{ApiGetMetrics}
 \usage{
-ApiGetMetrics(report.description, interval.seconds = 2, max.attempts = 5)
+ApiGetMetrics(report.description = "", reportsuite.id = "",
+  interval.seconds = 2, max.attempts = 5)
 }
 \arguments{
   \item{report.description}{JSON report description}
@@ -21,8 +22,8 @@ Internal function - Calls the API and gets valid metrics
 for specified params
 }
 \seealso{
-Other internal: \code{\link{ApiGetReport}};
-\code{\link{ApiQueueReport}};
+Other internal: \code{\link{ApiGetElements}};
+\code{\link{ApiGetReport}}; \code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};
 \code{\link{BuildURL}}; \code{\link{ParseFallout}};

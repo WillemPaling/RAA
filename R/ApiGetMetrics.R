@@ -14,40 +14,37 @@
 #' @family internal
 #'
 
-ApiGetMetrics <- function(report.description,interval.seconds=2,max.attempts=5) {
+ApiGetMetrics <- function(report.description="",reportsuite.id="",interval.seconds=2,max.attempts=5) {
   
-  report.validated <- FALSE
+  metrics.received <- FALSE
   num.tries <- 0
-  
-  while(report.validated==FALSE && num.tries < max.attempts){
-    num.tries <- num.tries + 1
-    json.queue <- PostRequest("Report.GetMetrics", report.description)
-    queue.resp <- content(json.queue)
-    
-    # If we are in debug mode, save the output
-    if(RAA.Debug==TRUE) {
-      print("Saving output as json.queue.getmetrics.txt")
-      sink("json.queue.getmetrics.txt")
-      cat(toJSON(queue.resp))
-      sink()
-      save(json.queue,file="json.queue.getmetrics.Rda")
-    }
 
-    report.validated <- (isTRUE(queue.resp$valid) || isTRUE(nchar(queue.resp$error)>0))
-    if(report.validated==FALSE) {
+  while(metrics.received==FALSE && num.tries < max.attempts){
+    num.tries <- num.tries + 1
+    print(report.description)
+    json.queue <- PostRequest("Report.GetMetrics", report.description)
+
+    if(json.queue$status==200) {
+      metrics.received <- TRUE
+      metrics.list <- fromJSON(content(json.queue,"text"))
+    } else {
       Sys.sleep(interval.seconds)
     }
   }
- 
-   # If we couldn't validate the report, then stop
-  if(!report.validated){
+
+  # If we are in debug mode, save the output
+  if(RAA.Debug==TRUE) {
+    print("Saving output as json.queue.getmetrics.txt")
+    sink("json.queue.getmetrics.txt")
+    cat(toJSON(metrics.list))
+    sink()
+    save(json.queue,file="json.queue.getmetrics.Rda")
+  }
+
+  # If we couldn't validate the report, then stop
+  if(!metrics.received){
     stop("Error: Number of Tries Exceeded")
   }
 
-  if(isTRUE(queue.resp$valid)) {
-    return(TRUE)
-  } else {
-    print(queue.resp$error_description)
-    return(FALSE)
-  }
+  return(metrics.list)
 }
