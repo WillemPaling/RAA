@@ -13,7 +13,8 @@ redundant, we should be using OAUTH.
 }
 \seealso{
 Other internal: \code{\link{ApiGetElements}};
-\code{\link{ApiGetMetrics}}; \code{\link{ApiGetReport}};
+\code{\link{ApiGetEvars}}; \code{\link{ApiGetMetrics}};
+\code{\link{ApiGetProps}}; \code{\link{ApiGetReport}};
 \code{\link{ApiGetSegments}}; \code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}};
 \code{\link{BuildInnerBreakdownsRecursively}};

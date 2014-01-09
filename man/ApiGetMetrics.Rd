@@ -23,6 +23,7 @@ for specified params
 }
 \seealso{
 Other internal: \code{\link{ApiGetElements}};
+\code{\link{ApiGetEvars}}; \code{\link{ApiGetProps}};
 \code{\link{ApiGetReport}}; \code{\link{ApiGetSegments}};
 \code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};

@@ -1,31 +1,30 @@
-\name{ApiGetReport}
-\alias{ApiGetReport}
-\title{ApiGetReport}
+\name{ApiGetProps}
+\alias{ApiGetProps}
+\title{ApiGetProps}
 \usage{
-ApiGetReport(report.id, interval.seconds = 5, max.attempts = 120)
+ApiGetProps(report.description = "", interval.seconds = 2,
+  max.attempts = 5)
 }
 \arguments{
-  \item{report.id}{Report ID returned from the API by
-  Report.Queue}
+  \item{report.description}{JSON report description}
 
   \item{interval.seconds}{Time to wait between attempts to
-  get the report (defaults to 5 seconds)}
+  get the report (defaults to 2 seconds)}
 
   \item{max.attempts}{Max number of attempts to make to
-  retrieve the report (defaults to 120)}
+  retrieve the report (defaults to 5)}
 }
 \value{
-Formatted data frame containing the report
+list of available props
 }
 \description{
-Internal function - retrieves specified report from Adobe
-Analytics API, if it is not available, it tries again after
-interval.seconds, up to max.attempts times
+Internal function - Calls the API and gets valid props for
+specified params
 }
 \seealso{
 Other internal: \code{\link{ApiGetElements}};
 \code{\link{ApiGetEvars}}; \code{\link{ApiGetMetrics}};
-\code{\link{ApiGetProps}}; \code{\link{ApiGetSegments}};
+\code{\link{ApiGetReport}}; \code{\link{ApiGetSegments}};
 \code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};

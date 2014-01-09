@@ -1,8 +1,8 @@
-\name{ApiValidateReport}
-\alias{ApiValidateReport}
-\title{ApiValidateReport}
+\name{ApiGetEvars}
+\alias{ApiGetEvars}
+\title{ApiGetEvars}
 \usage{
-ApiValidateReport(report.description, interval.seconds = 2,
+ApiGetEvars(report.description = "", interval.seconds = 2,
   max.attempts = 5)
 }
 \arguments{
@@ -15,18 +15,18 @@ ApiValidateReport(report.description, interval.seconds = 2,
   retrieve the report (defaults to 5)}
 }
 \value{
-TRUE/FALSE depending on whether the report is valid or not
+list of available evars
 }
 \description{
-Internal function - Calls the API and attempts to validate
-a report description.
+Internal function - Calls the API and gets valid evars for
+specified params
 }
 \seealso{
 Other internal: \code{\link{ApiGetElements}};
-\code{\link{ApiGetEvars}}; \code{\link{ApiGetMetrics}};
-\code{\link{ApiGetProps}}; \code{\link{ApiGetReport}};
-\code{\link{ApiGetSegments}}; \code{\link{ApiQueueReport}};
-\code{\link{BuildHeader}};
+\code{\link{ApiGetMetrics}}; \code{\link{ApiGetProps}};
+\code{\link{ApiGetReport}}; \code{\link{ApiGetSegments}};
+\code{\link{ApiQueueReport}};
+\code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};
 \code{\link{BuildURL}}; \code{\link{ParseFallout}};
 \code{\link{ParseOvertime}}; \code{\link{ParsePathing}};

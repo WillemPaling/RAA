@@ -22,7 +22,8 @@ Internal function - Calls the API and gets valid elements
 for specified params
 }
 \seealso{
-Other internal: \code{\link{ApiGetMetrics}};
+Other internal: \code{\link{ApiGetEvars}};
+\code{\link{ApiGetMetrics}}; \code{\link{ApiGetProps}};
 \code{\link{ApiGetReport}}; \code{\link{ApiGetSegments}};
 \code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
