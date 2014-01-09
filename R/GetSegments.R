@@ -15,8 +15,14 @@ GetSegments <- function(reportsuite.ids) {
 
   valid.segments <- ApiGetSegments(report.description=toJSON(report.description))
 
+  segments.formatted <- data.frame()
   for (i in 1:length(valid.segments$rsid) ) {
     valid.segments$segments[[i]]$report_suite <- valid.segments$rsid[[i]]
+    if(nrow(segments.formatted)==0) {
+      segments.formatted <- valid.segments$segments[[i]]
+    } else {
+      segments.formatted <- rbind(segments.formatted,valid.segments$segments[[i]])
+    }
   }
 
   return(valid.segments$segments)
