@@ -1,9 +1,9 @@
-\name{ApiGetElements}
-\alias{ApiGetElements}
-\title{ApiGetElements}
+\name{ApiGetSuccessEvents}
+\alias{ApiGetSuccessEvents}
+\title{ApiGetSuccessEvents}
 \usage{
-ApiGetElements(report.description = "", reportsuite.id = "",
-  interval.seconds = 2, max.attempts = 5)
+ApiGetSuccessEvents(report.description = "", interval.seconds = 2,
+  max.attempts = 5)
 }
 \arguments{
   \item{report.description}{JSON report description}
@@ -15,18 +15,18 @@ ApiGetElements(report.description = "", reportsuite.id = "",
   retrieve the report (defaults to 5)}
 }
 \value{
-list of valid elements
+list of available successevents
 }
 \description{
-Internal function - Calls the API and gets valid elements
-for specified params
+Internal function - Calls the API and gets valid
+successevents
 }
 \seealso{
-Other internal: \code{\link{ApiGetEvars}};
-\code{\link{ApiGetMetrics}}; \code{\link{ApiGetProps}};
+Other internal: \code{\link{ApiGetElements}};
+\code{\link{ApiGetEvars}}; \code{\link{ApiGetMetrics}};
+\code{\link{ApiGetProps}};
 \code{\link{ApiGetReportSuites}};
 \code{\link{ApiGetReport}}; \code{\link{ApiGetSegments}};
-\code{\link{ApiGetSuccessEvents}};
 \code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};

@@ -21,7 +21,6 @@ ApiGetProps <- function(report.description="",interval.seconds=2,max.attempts=5)
 
   while(props.received==FALSE && num.tries < max.attempts){
     num.tries <- num.tries + 1
-    print(report.description)
     json.queue <- PostRequest("ReportSuite.GetProps", report.description)
 
     if(json.queue$status==200) {

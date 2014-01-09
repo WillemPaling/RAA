@@ -21,7 +21,6 @@ ApiGetMetrics <- function(report.description="",reportsuite.id="",interval.secon
 
   while(metrics.received==FALSE && num.tries < max.attempts){
     num.tries <- num.tries + 1
-    print(report.description)
     json.queue <- PostRequest("Report.GetMetrics", report.description)
 
     if(json.queue$status==200) {

@@ -40,8 +40,11 @@ a report description.
 \seealso{
 Other internal: \code{\link{ApiGetElements}};
 \code{\link{ApiGetEvars}}; \code{\link{ApiGetMetrics}};
-\code{\link{ApiGetProps}}; \code{\link{ApiGetReport}};
-\code{\link{ApiGetSegments}}; \code{\link{ApiQueueReport}};
+\code{\link{ApiGetProps}};
+\code{\link{ApiGetReportSuites}};
+\code{\link{ApiGetReport}}; \code{\link{ApiGetSegments}};
+\code{\link{ApiGetSuccessEvents}};
+\code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildURL}}; \code{\link{ParseFallout}};
 \code{\link{ParseOvertime}}; \code{\link{ParsePathing}};

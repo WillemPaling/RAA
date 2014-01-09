@@ -24,7 +24,9 @@ specified params
 \seealso{
 Other internal: \code{\link{ApiGetElements}};
 \code{\link{ApiGetMetrics}}; \code{\link{ApiGetProps}};
+\code{\link{ApiGetReportSuites}};
 \code{\link{ApiGetReport}}; \code{\link{ApiGetSegments}};
+\code{\link{ApiGetSuccessEvents}};
 \code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};

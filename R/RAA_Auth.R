@@ -19,6 +19,8 @@
 
 RAA_Auth <- function(key, secret, endpoint.url="", token.file="", auth.method="OAUTH2"){
 
+  #@TODO: Endpoint detection using Company.GetEndpoint
+
   RAA.Credentials <<- ""
 
   if(auth.method=="OAUTH2") {
@@ -39,7 +41,7 @@ RAA_Auth <- function(key, secret, endpoint.url="", token.file="", auth.method="O
                             "https://api.omniture.com/token")
 
       aa.app <- oauth_app("RAA", key, secret)
-      aa.cred <- oauth2.0_token(aa.api, aa.app, scope="ReportSuite Report")
+      aa.cred <- oauth2.0_token(aa.api, aa.app, scope="ReportSuite Report Company")
 
       print(aa.cred)
 

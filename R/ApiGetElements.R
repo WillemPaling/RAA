@@ -1,4 +1,4 @@
-#' ApiGetELements
+#' ApiGetElements
 #'
 #' Internal function - Calls the API and gets valid elements for specified params
 #'
@@ -21,7 +21,6 @@ ApiGetElements <- function(report.description="",reportsuite.id="",interval.seco
 
   while(elements.received==FALSE && num.tries < max.attempts){
     num.tries <- num.tries + 1
-    print(report.description)
     json.queue <- PostRequest("Report.GetElements", report.description)
 
     if(json.queue$status==200) {

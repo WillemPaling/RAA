@@ -21,7 +21,6 @@ ApiGetSegments <- function(report.description="",interval.seconds=2,max.attempts
 
   while(segments.received==FALSE && num.tries < max.attempts){
     num.tries <- num.tries + 1
-    print(report.description)
     json.queue <- PostRequest("ReportSuite.GetSegments", report.description)
 
     if(json.queue$status==200) {
