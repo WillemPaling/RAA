@@ -25,6 +25,6 @@ GetSegments <- function(reportsuite.ids) {
     }
   }
 
-  return(valid.segments$segments)
+  return(segments.formatted)
 
 }
