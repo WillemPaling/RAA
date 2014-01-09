@@ -24,7 +24,8 @@ interval.seconds, up to max.attempts times
 }
 \seealso{
 Other internal: \code{\link{ApiGetElements}};
-\code{\link{ApiGetMetrics}}; \code{\link{ApiQueueReport}};
+\code{\link{ApiGetMetrics}}; \code{\link{ApiGetSegments}};
+\code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};
 \code{\link{BuildURL}}; \code{\link{ParseFallout}};

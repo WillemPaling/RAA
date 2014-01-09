@@ -24,7 +24,8 @@ a report description.
 \seealso{
 Other internal: \code{\link{ApiGetElements}};
 \code{\link{ApiGetMetrics}}; \code{\link{ApiGetReport}};
-\code{\link{ApiQueueReport}}; \code{\link{BuildHeader}};
+\code{\link{ApiGetSegments}}; \code{\link{ApiQueueReport}};
+\code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};
 \code{\link{BuildURL}}; \code{\link{ParseFallout}};
 \code{\link{ParseOvertime}}; \code{\link{ParsePathing}};

@@ -1,9 +1,9 @@
-\name{ApiGetMetrics}
-\alias{ApiGetMetrics}
-\title{ApiGetMetrics}
+\name{ApiGetSegments}
+\alias{ApiGetSegments}
+\title{ApiGetSegments}
 \usage{
-ApiGetMetrics(report.description = "", reportsuite.id = "",
-  interval.seconds = 2, max.attempts = 5)
+ApiGetSegments(report.description = "", interval.seconds = 2,
+  max.attempts = 5)
 }
 \arguments{
   \item{report.description}{JSON report description}
@@ -15,15 +15,15 @@ ApiGetMetrics(report.description = "", reportsuite.id = "",
   retrieve the report (defaults to 5)}
 }
 \value{
-list of valid metrics
+list of available segments
 }
 \description{
-Internal function - Calls the API and gets valid metrics
+Internal function - Calls the API and gets valid segments
 for specified params
 }
 \seealso{
 Other internal: \code{\link{ApiGetElements}};
-\code{\link{ApiGetReport}}; \code{\link{ApiGetSegments}};
+\code{\link{ApiGetMetrics}}; \code{\link{ApiGetReport}};
 \code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};

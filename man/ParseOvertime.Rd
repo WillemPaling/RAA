@@ -18,7 +18,7 @@ the API
 \seealso{
 Other internal: \code{\link{ApiGetElements}};
 \code{\link{ApiGetMetrics}}; \code{\link{ApiGetReport}};
-\code{\link{ApiQueueReport}};
+\code{\link{ApiGetSegments}}; \code{\link{ApiQueueReport}};
 \code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
 \code{\link{BuildInnerBreakdownsRecursively}};
 \code{\link{BuildURL}}; \code{\link{ParseFallout}};

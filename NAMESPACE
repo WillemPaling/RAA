@@ -1,5 +1,6 @@
 export(GetElements)
 export(GetMetrics)
+export(GetSegments)
 export(JsonQueueReport)
 export(QueueFallout)
 export(QueueOvertime)
