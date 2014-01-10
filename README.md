@@ -6,7 +6,7 @@ RAA
 R client library for the Adobe Analytics 1.4 API, currently in beta, but due out in Feb 2014.
 Get in touch with me if you're interested in using it. It is functional, but has not been extensively tested.
 
-This library borrows from [Randy Zwitch's](https://github.com/randyzwitch) [RSiteCatalyst](https://github.com/randyzwitch/RSiteCatalyst) which the Adobe Analytics v1.3 API.
+This library borrows from [Randy Zwitch's](https://github.com/randyzwitch) [RSiteCatalyst](https://github.com/randyzwitch/RSiteCatalyst) which provides access to the Adobe Analytics v1.3 API.
 ## Installation
 RAA is in development, and is not yet on CRAN. You will need to install directly from GitHub.
 
