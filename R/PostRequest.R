@@ -47,7 +47,12 @@ PostRequest <- function(method,body=NULL,interval.seconds=2,max.attempts=1,print
   }
 
   if(!result){
-    print(paste("ERROR: max attempts exceeded for",url))
+    response.content <- content(response)
+    if(nchar(response.content$error_description)) {
+      stop(paste("ERROR:",response.content$error_description))
+    } else {
+      stop(paste("ERROR: max attempts exceeded for",url))
+    }
   }
 
   # If we are in debug mode, save the output

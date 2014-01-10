@@ -8,6 +8,9 @@ GetReportSuites()
 List of valid reportsuites
 }
 \description{
-Gets available report suite reportsuites
+Gets all available report suites for the company.
+}
+\examples{
+reportsuites <- GetReportSuites()
 }
 

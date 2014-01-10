@@ -3,8 +3,8 @@
 \title{QueueOvertime}
 \usage{
 QueueOvertime(reportsuite.id, date.from, date.to, metrics,
-  date.granularity = "day", segment.id = "", anomaly.detection = FALSE,
-  data.current = FALSE, expedite = FALSE)
+  date.granularity = "day", segment.id = "", segment.inline = "",
+  anomaly.detection = FALSE, data.current = FALSE, expedite = FALSE)
 }
 \arguments{
   \item{reportsuite.id}{report suite id}
@@ -20,6 +20,8 @@ QueueOvertime(reportsuite.id, date.from, date.to, metrics,
 
   \item{segment.id}{id of Adobe Analytics segment to
   retrieve the report for}
+
+  \item{segment.inline}{inline segment definition}
 
   \item{anomaly.dection}{set to TRUE to include forecast
   data (only valid for day granularity with small date

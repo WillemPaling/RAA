@@ -8,6 +8,7 @@
 #' @param metrics list of metrics to include in the report
 #' @param date.granularity time granularity of the report (year/month/week/day/hour), default to 'day'
 #' @param segment.id id of Adobe Analytics segment to retrieve the report for
+#' @param segment.inline inline segment definition
 #' @param anomaly.dection  set to TRUE to include forecast data (only valid for day granularity with small date ranges)
 #' @param data.current TRUE or FALSE - whether to include current data for reports that include today's date
 #' @param expedite set to TRUE to expedite the processing of this report
@@ -17,7 +18,7 @@
 #' @export
 
 QueueOvertime <- function(reportsuite.id, date.from, date.to, metrics,
-                        date.granularity='day', segment.id='', anomaly.detection=FALSE,
+                        date.granularity='day', segment.id='', segment.inline='', anomaly.detection=FALSE,
                         data.current=FALSE, expedite=FALSE) {
   
   # build JSON description
@@ -32,7 +33,12 @@ QueueOvertime <- function(reportsuite.id, date.from, date.to, metrics,
   report.description$reportDescription$anomalyDetection <- jsonlite:::as.scalar(anomaly.detection)
   report.description$reportDescription$currentData <- jsonlite:::as.scalar(data.current)
   report.description$reportDescription$expedite <- jsonlite:::as.scalar(expedite)
+  if(segment.inline!="") {
+    report.description$reportDescription$segments <- list(segment.inline)
+  }
   report.description$reportDescription$metrics = data.frame(id = metrics)
+
+  print(toJSON(report.description))
 
   report.data <- JsonQueueReport(toJSON(report.description))
 

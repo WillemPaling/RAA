@@ -12,6 +12,11 @@ GetProps(reportsuite.ids)
 List of valid props
 }
 \description{
-Gets available report suite props
+Gets sprop (traffic variable) definitions for the specified
+report suite(s). Useful to audit or document a report suite
+or company in Adobe Analytics.
+}
+\examples{
+props <- GetProps(c("your_prod_report_suite","your_dev_reportsuite"))
 }
 

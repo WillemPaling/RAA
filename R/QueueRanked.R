@@ -12,6 +12,7 @@
 #' @param selected list of specific items to include in the report - e.g. list(page=c("Home","Search","About")). 
 #' This appears to only work for the first element.
 #' @param segment.id id of Adobe Analytics segment to retrieve the report for
+#' @param segment.inline inline segment definition
 #' @param anomaly.dection  set to TRUE to include forecast data (only valid for day granularity with small date ranges)
 #' @param data.current TRUE or FALSE - whether to include current data for reports that include today's date
 #' @param expedite set to TRUE to expedite the processing of this report
@@ -22,7 +23,7 @@
 
 QueueRanked <- function(reportsuite.id, date.from, date.to, metrics, elements,
                         top=0,start=0,selected=list(),
-                        segment.id='', data.current=FALSE, expedite=FALSE) {
+                        segment.id='', segment.inline='', data.current=FALSE, expedite=FALSE) {
 
   # build JSON description
   # we have to use jsonlite:::as.scalar to force jsonlist not put strings into single-element arrays
@@ -31,6 +32,9 @@ QueueRanked <- function(reportsuite.id, date.from, date.to, metrics, elements,
   report.description$reportDescription$dateFrom <- jsonlite:::as.scalar(date.from)
   report.description$reportDescription$dateTo <- jsonlite:::as.scalar(date.to)
   report.description$reportDescription$reportSuiteID <- jsonlite:::as.scalar(reportsuite.id)
+  if(segment.inline!="") {
+    report.description$reportDescription$segments <- list(segment.inline)
+  }
   if(top>0) { 
     report.description$reportDescription$top <- jsonlite:::as.scalar(top) 
   }

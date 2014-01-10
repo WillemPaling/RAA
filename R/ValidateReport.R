@@ -18,6 +18,7 @@ ValidateReport <- function(report.description,interval.seconds=2,max.attempts=5)
   if(isTRUE(response$valid)) {
     return(TRUE)
   } else {
+    print(paste("ERROR:",response$error_description))
     return(FALSE)
   }
 }

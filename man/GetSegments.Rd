@@ -12,6 +12,11 @@ GetSegments(reportsuite.ids)
 List of valid segments
 }
 \description{
-Gets available report suite segments
+Gets a list of segments for the specified report suites.
+Useful to find segment IDs for use in reporting helper
+functions or JSON report definitions.
+}
+\examples{
+segments <- GetSegments(c("your_prod_report_suite","your_dev_reportsuite"))
 }
 

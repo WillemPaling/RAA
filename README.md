@@ -52,7 +52,7 @@ install.packages(c("jsonlite","plyr","httr","stringr","digest","base64enc,"httpu
 Authorisation can be done using the legacy auth method (username:company + shared secret), or using the newer OAUTH method. Either is fine, but ultimately you should move towards using the OAUTH method, as the legacy auth method is deprecated.
 
 ##### Using OAUTH
-First you will need to create an application in the [Adobe Dev Center](https://developer.omniture.com/en_US/devcenter). The application name can be whatever you want. The redirect URI should be *http://localhost:1410*.
+First you will need to create an application in the [Adobe Dev Center](https://developer.omniture.com/en_US/devcenter). The application name can be whatever you want. The redirect URI should be left blank.
 
 This will provide you with a identifier and secret that you can use to access the Adobe Analytics API.
 
