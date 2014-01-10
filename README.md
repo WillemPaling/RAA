@@ -79,7 +79,7 @@ RAA_Auth("your_username:your_company",
 ## Running Reports
 Once you've authorised, reports can be queued and retrieved using the helper libraries for each report type, or by using raw JSON report definitions.
 
-##### Running a report using a JSON definition
+#### Running a report using a JSON definition
 The following code defines a JSON report description, and runs it. As no date granularity is specified, it will return a ranked report.
 
 ```
@@ -109,10 +109,10 @@ report.desc <- '{ "reportDescription" : {
 report.data <- JsonQueueReport(desc)
 ```
 
-##### Using the report helper functions
+#### Using the report helper functions
 RAA has helper functions that make it easier to generate all report types (ranked, overtime, trended, pathing, fallout). These take parameters in R, convert them to JSON, then call JsonQueueReport. _RAA_ helper functions do not yet support inline segmentation or search, so if you want to use that functionality, you will need to use JsonQueueReport directly.
 
-###### QueueOvertime
+#### QueueOvertime
 Returns an overtime report. This is similar to the key metrics report, in that the only granularity allowed is time. 
 
 QueueOvertime requires a start and end date, a reportsuite ID, and a character vector of metrics.
@@ -142,7 +142,7 @@ expedite <- TRUE
 report.data <- QueueOvertime(reportsuite.id, date.from, date.to, metrics,date.granularity=date.granularity,segment.id=segment.id,anomaly.detection=anomaly.detection,data.current=data.current,expedite=expedite)
 ```
 
-###### QueueRanked
+#### QueueRanked
 Returns a ranked report. This is an ordered list of elements and associated metrics with no time granularity.
 
 QueueRanked requires a start and end date, a reportsuite ID, a character vector of elements and a character vector of metrics.
@@ -175,7 +175,7 @@ expedite <- TRUE
 report.data <- QueueRanked(reportsuite.id, date.from, date.to, metrics,elements,top=top,start=start,selected=selected,segment.id=segment.id,data.current=data.current,expedit=expedite)
 ```
 
-###### QueueTrended
+#### QueueTrended
 Returns a trended report. This is an ordered list of elements and associated metrics with time granularity.
 
 QueueTrended requires a start and end date, a reportsuite ID, a character vector of elements and a character vector of metrics.
@@ -209,7 +209,7 @@ expedite <- TRUE
 report.data <- QueueTrended(reportsuite.id, date.from, date.to, metrics,elements,top=top,start=start,selected=selected,segment.id=segment.id,data.current=data.current,expedit=expedite)
 ```
 
-###### QueuePathing
+#### QueuePathing
 Returns a pathing report. This is an ordered list of paths matching the specified pattern.
 
 QueuePathing requires a start and end date, a reportsuite ID, a single element, a single metric and a pattern of element values that defined the path.
@@ -225,7 +225,7 @@ pattern <- c("Home",":::anything:::",":::anything:::")
 report.data <- QueuePathing(reportsuite.id, date.from, date.to, metric, element, pattern)
 ```
 
-###### QueueFallout
+#### QueueFallout
 Returns a fallout report. This is a pathed list of elements, with fallout values for each.
 
 QueuePathing requires a start and end date, a reportsuite ID, a single element, a character vector of metrics and a character vector of element values that defined the checkpoints.
@@ -244,49 +244,49 @@ report.data <- QueuePathing(reportsuite.id, date.from, date.to, metrics, element
 ## Understanding the Available Data
 Using the API, you can retrieve the setup of your report suite and view definitions for evars and sprops, success events, report suites and segments.
 
-###### GetElements
+#### GetElements
 Gets valid elements for a report suite for the current user. This list is restricted by optionally specified existing elements, existing metrics and date granularity.
 
 ```
 elements.valid <- GetElements("your_report_suite",metrics=c('visitors','pageviews'),elements=c('page','geoCountry'),date.granularity='day')
 ```
 
-###### GetMetrics
+#### GetMetrics
 Gets valid metrics for a report suite for the current user. This list is restricted by optionally specified existing elements, existing metrics and date granularity.
 
 ```
 metrics.valid <- GetMetrics("your_report_suite",metrics=c('visitors','pageviews'),elements=c('page','geoCountry'),date.granularity='day')
 ```
 
-###### GetEvars
+#### GetEvars
 Gets evar (conversion variable) definitions for the specified report suite(s). Useful to audit or document a report suite or company in Adobe Analytics.
 
 ```
 evars <- GetEvars(c("your_prod_report_suite","your_dev_reportsuite"))
 ```
 
-###### GetProps
+#### GetProps
 Gets sprop (traffic variable) definitions for the specified report suite(s). Useful to audit or document a report suite or company in Adobe Analytics.
 
 ```
 props <- GetEvars(c("your_prod_report_suite","your_dev_reportsuite"))
 ```
 
-###### GetSuccessEvents
+#### GetSuccessEvents
 Gets success event definitions for the specified report suite(s). Useful to audit or document a report suite or company in Adobe Analytics.
 
 ```
 successevents <- GetEvars(c("your_prod_report_suite","your_dev_reportsuite"))
 ```
 
-###### GetReportSuites
+#### GetReportSuites
 Gets all report suites for the company.
 
 ```
 reportsuites <- GetReportSuites()
 ```
 
-###### GetSegments
+#### GetSegments
 Gets a list of segments for the specified report suites. Useful to find segment IDs for use in reporting helper functions or JSON report definitions.
 
 ```
