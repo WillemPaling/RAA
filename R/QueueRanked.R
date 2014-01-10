@@ -74,8 +74,7 @@ QueueRanked <- function(reportsuite.id, date.from, date.to, metrics, elements,
     report.description$reportDescription$elements <- data.frame(id = elements)
   }
 
-  report.id <- ApiQueueReport(report.description)
-  report.data <- ApiGetReport(report.id)
+  report.data <- JsonQueueReport(toJSON(report.description))
 
   return(report.data) 
 

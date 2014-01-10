@@ -43,8 +43,7 @@ QueuePathing <- function(reportsuite.id, date.from, date.to, metric, element, pa
                                                             startingWith = jsonlite:::as.scalar(start), 
                                                             pattern = as.list(pattern)))
 
-  report.id <- ApiQueueReport(report.description)
-  report.data <- ApiGetReport(report.id)
+  report.data <- JsonQueueReport(toJSON(report.description))
 
   return(report.data) 
 

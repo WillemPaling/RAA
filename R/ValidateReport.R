@@ -1,0 +1,23 @@
+#' ValidateReport
+#'
+#' Internal function - Calls the API and attempts to validate a report description.
+#'
+#' @param report.description JSON report description
+#' @param interval.seconds Time to wait between attempts to validate the report (defaults to 2 seconds)
+#' @param max.attempts Max number of attempts to make to validate the report (defaults to 1)
+#'
+#' @return TRUE/FALSE depending on whether the report is valid or not
+#'
+#' @export
+#'
+
+ValidateReport <- function(report.description,interval.seconds=2,max.attempts=5) {
+
+  response <- ApiRequest(body=report.description,func.name="Report.Validate")
+
+  if(isTRUE(response$valid)) {
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+}

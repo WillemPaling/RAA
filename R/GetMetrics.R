@@ -13,20 +13,20 @@
 
 GetMetrics <- function(reportsuite.id, metrics=c(), elements=c(), date.granularity='') {
   
-  report.description <- c()
-  report.description$reportSuiteID <- jsonlite:::as.scalar(reportsuite.id)
+  request.body <- c()
+  request.body$reportSuiteID <- jsonlite:::as.scalar(reportsuite.id)
 
   if(length(metrics)>0) { 
-    report.description$reportDescription$existingMetrics <- metrics
+    request.body$reportDescription$existingMetrics <- metrics
   }
   if(length(elements)>0) { 
-    report.description$reportDescription$existingElements <- elements
+    request.body$reportDescription$existingElements <- elements
   }
   if(nchar(date.granularity)>0) { 
-    report.description$reportDescription$dateGranularity <- jsonlite:::as.scalar(date.granularity) 
+    request.body$reportDescription$dateGranularity <- jsonlite:::as.scalar(date.granularity) 
   }
 
-  valid.metrics <- ApiGetMetrics(report.description=toJSON(report.description))
+  valid.metrics <- ApiRequest(body=toJSON(request.body),func.name="Report.GetMetrics")
 
   return(valid.metrics)
 

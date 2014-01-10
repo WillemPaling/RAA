@@ -10,10 +10,10 @@
 
 GetProps <- function(reportsuite.ids) {
   
-  report.description <- c()
-  report.description$rsid_list <- reportsuite.id
+  request.body <- c()
+  request.body$rsid_list <- reportsuite.id
 
-  valid.props <- ApiGetProps(report.description=toJSON(report.description))
+  valid.props <- ApiRequest(body=toJSON(request.body),func.name="ReportSuite.GetProps")
 
   props.formatted <- data.frame()
   for (i in 1:length(valid.props$rsid) ) {

@@ -1,6 +1,6 @@
 #' BuildHeader
 #'
-#' Internal function - Build Header for REST API call. This is redundant, we should be using OAUTH.
+#' Internal function - Build Header for REST API call. This is deprecated, we should now be using OAUTH.
 #'
 #' @importFrom digest digest
 #' @importFrom base64enc base64encode
@@ -11,8 +11,7 @@
 #'
 
 BuildHeader <- function() {
-  
-  print("Building Legacy Auth Headers: This method is deprecated. If possible, use OAUTH.")
+
   #Create nonce
   nonce <- as.character(as.numeric(Sys.time()))
   #Create timestamp

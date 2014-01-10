@@ -1,6 +1,6 @@
 \name{BuildInnerBreakdownsRecursively}
 \alias{BuildInnerBreakdownsRecursively}
-\title{ApiValidateReport}
+\title{ValidateReport}
 \usage{
 BuildInnerBreakdownsRecursively(parent.element, elements, metrics,
   current.recursion.level, context, accumulator = data.frame(),
@@ -38,17 +38,10 @@ Internal function - Calls the API and attempts to validate
 a report description.
 }
 \seealso{
-Other internal: \code{\link{ApiGetElements}};
-\code{\link{ApiGetEvars}}; \code{\link{ApiGetMetrics}};
-\code{\link{ApiGetProps}};
-\code{\link{ApiGetReportSuites}};
-\code{\link{ApiGetReport}}; \code{\link{ApiGetSegments}};
-\code{\link{ApiGetSuccessEvents}};
-\code{\link{ApiQueueReport}};
-\code{\link{ApiValidateReport}}; \code{\link{BuildHeader}};
-\code{\link{BuildURL}}; \code{\link{ParseFallout}};
-\code{\link{ParseOvertime}}; \code{\link{ParsePathing}};
-\code{\link{ParseRanked}}; \code{\link{ParseTrended}};
-\code{\link{PostRequest}}
+Other internal: \code{\link{ApiRequest}};
+\code{\link{BuildHeader}}; \code{\link{BuildURL}};
+\code{\link{ParseFallout}}; \code{\link{ParseOvertime}};
+\code{\link{ParsePathing}}; \code{\link{ParseRanked}};
+\code{\link{ParseTrended}}; \code{\link{PostRequest}}
 }
 

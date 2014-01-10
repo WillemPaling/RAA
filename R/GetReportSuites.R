@@ -8,10 +8,10 @@
 
 GetReportSuites <- function() {
   
-  report.description <- c()
-  report.description$rsid_list <- reportsuite.id
+  request.body <- c()
+  request.body$rsid_list <- reportsuite.id
 
-  reportsuites <- ApiGetReportSuites()
+  reportsuites <- ApiRequest(body=toJSON(request.body),func.name="Company.GetReportSuites")
 
   return(reportsuites$report_suites)
 

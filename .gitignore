@@ -14,3 +14,4 @@ API14_BETA_test_calls.R
 *.Rproj
 
 json.queue.getelements.txt
+PostRequest*

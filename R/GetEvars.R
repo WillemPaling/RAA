@@ -13,7 +13,7 @@ GetEvars <- function(reportsuite.ids) {
   report.description <- c()
   report.description$rsid_list <- reportsuite.id
 
-  valid.evars <- ApiGetEvars(report.description=toJSON(report.description))
+  valid.evars <- ApiRequest(body=toJSON(report.description),func.name="ReportSuite.GetEvars")
 
   evars.formatted <- data.frame()
   for (i in 1:length(valid.evars$rsid) ) {

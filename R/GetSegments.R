@@ -10,10 +10,10 @@
 
 GetSegments <- function(reportsuite.ids) {
   
-  report.description <- c()
-  report.description$rsid_list <- reportsuite.id
-
-  valid.segments <- ApiGetSegments(report.description=toJSON(report.description))
+  request.body <- c()
+  request.body$rsid_list <- reportsuite.id
+  
+  valid.segments <- ApiRequest(body=toJSON(request.body),func.name="ReportSuite.GetSegments")
 
   segments.formatted <- data.frame()
   for (i in 1:length(valid.segments$rsid) ) {

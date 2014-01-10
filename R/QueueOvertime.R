@@ -34,8 +34,7 @@ QueueOvertime <- function(reportsuite.id, date.from, date.to, metrics,
   report.description$reportDescription$expedite <- jsonlite:::as.scalar(expedite)
   report.description$reportDescription$metrics = data.frame(id = metrics)
 
-  report.id <- ApiQueueReport(report.description)
-  report.data <- ApiGetReport(report.id)
+  report.data <- JsonQueueReport(toJSON(report.description))
 
   return(report.data) 
 

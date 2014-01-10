@@ -34,8 +34,7 @@ QueueFallout <- function(reportsuite.id, date.from, date.to, metrics, element, c
   report.description$reportDescription$metrics = data.frame(id = metrics)
   report.description$reportDescription$elements = list(list(id = jsonlite:::as.scalar(element), checkpoints = checkpoints))
 
-  report.id <- ApiQueueReport(report.description)
-  report.data <- ApiGetReport(report.id)
+  report.data <- JsonQueueReport(toJSON(report.description))
 
   return(report.data) 
 

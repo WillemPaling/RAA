@@ -1,4 +1,4 @@
-#' ApiValidateReport
+#' ValidateReport
 #'
 #' Internal function - Calls the API and attempts to validate a report description.
 #'

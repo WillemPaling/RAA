@@ -10,10 +10,10 @@
 
 GetSuccessEvents <- function(reportsuite.ids) {
 
-  report.description <- c()
-  report.description$rsid_list <- reportsuite.id
+  request.body <- c()
+  request.body$rsid_list <- reportsuite.id
 
-  valid.successevents <- ApiGetSuccessEvents(report.description=toJSON(report.description))
+  valid.successevents <- ApiRequest(body=toJSON(request.body),func.name="ReportSuite.GetSuccessEvents")
 
   successevents.formatted <- data.frame()
   for (i in 1:length(valid.successevents$rsid) ) {

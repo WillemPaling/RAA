@@ -13,20 +13,20 @@
 
 GetElements <- function(reportsuite.id, metrics=c(), elements=c(), date.granularity='') {
   
-  report.description <- c()
-  report.description$reportSuiteID <- jsonlite:::as.scalar(reportsuite.id)
+  request.body <- c()
+  request.body$reportSuiteID <- jsonlite:::as.scalar(reportsuite.id)
 
   if(length(metrics)>0) { 
-    report.description$reportDescription$existingElements <- metrics
+    request.body$reportDescription$existingElements <- metrics
   }
   if(length(elements)>0) { 
-    report.description$reportDescription$existingElements <- elements
+    request.body$reportDescription$existingElements <- elements
   }
   if(nchar(date.granularity)>0) { 
-    report.description$reportDescription$dateGranularity <- jsonlite:::as.scalar(date.granularity) 
+    request.body$reportDescription$dateGranularity <- jsonlite:::as.scalar(date.granularity) 
   }
 
-  valid.elements <- ApiGetElements(report.description=toJSON(report.description))
+  valid.elements <- ApiRequest(body=toJSON(request.body),func.name="Report.GetElements")
 
   return(valid.elements)
 

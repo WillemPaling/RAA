@@ -17,5 +17,4 @@ BuildURL <- function(method){
   } else if(RAA.Credentials$auth.method=="legacy") {
     return(paste(endpoint, "?method=",method, sep=""))
   }
-
 }

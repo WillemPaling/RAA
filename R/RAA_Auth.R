@@ -66,7 +66,7 @@ RAA_Auth <- function(key, secret, endpoint.url="", token.file="", auth.method="O
       error.flag = error.flag + 1
     }
     if(endpoint.url==""){
-      warning("Error: No endpoint URL specified.")
+      stop("ERROR: No endpoint URL specified.")
       error.flag = error.flag + 1
     }
     if(nchar(secret) != 32){
