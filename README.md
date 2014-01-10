@@ -1,7 +1,7 @@
 RAA
 ===============
 
-##### Pronounced _RAAAH!_ (imagine you are a lion).
+##### Pronounced _RAAAH!_ (imagine you are a ferocious lion).
 
 R client library for the Adobe Analytics 1.4 API, currently in beta, but due out in Feb 2014.
 Get in touch with me if you're interested in using it. It is functional, but has not been extensively tested.
