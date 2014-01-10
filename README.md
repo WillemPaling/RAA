@@ -123,7 +123,7 @@ date.to <- "2013-01-07"
 reportsuite.id <- "your_report_suite"
 metrics <- c("visits","uniquevisitors","pageviews")
 
-QueueOvertime <- function(reportsuite.id, date.from, date.to, metrics)
+report.data <- QueueOvertime(reportsuite.id, date.from, date.to, metrics)
 ```
 
 You may also wish to set any of the 5 optional named parameters.
@@ -139,7 +139,7 @@ anomaly.detection <- TRUE
 data.current <- TRUE
 expedite <- TRUE
 
-QueueOvertime <- function(reportsuite.id, date.from, date.to, metrics,date.granularity=date.granularity,segment.id=segment.id,anomaly.detection=anomaly.detection,data.current=data.current,expedite=expedite)
+report.data <- QueueOvertime(reportsuite.id, date.from, date.to, metrics,date.granularity=date.granularity,segment.id=segment.id,anomaly.detection=anomaly.detection,data.current=data.current,expedite=expedite)
 ```
 
 ###### Helper Function: QueueRanked
@@ -154,7 +154,7 @@ reportsuite.id <- "your_report_suite"
 metrics <- c("visits","uniquevisitors","pageviews")
 elements <- c("page","geoCountry","geoCity")
 
-QueueRanked <- function(reportsuite.id, date.from, date.to, metrics, elements)
+report.data <- QueueRanked(reportsuite.id, date.from, date.to, metrics, elements)
 ```
 
 You may also wish to set any of the 6 optional named parameters. While you can specify more than one element with _selected_, at this point, the 1.4 API only supports this for the first element specified.
@@ -172,7 +172,7 @@ segment.id <- "dw:12345"
 data.current <- TRUE
 expedite <- TRUE
 
-QueueRanked <- function(reportsuite.id, date.from, date.to, metrics,elements,top=top,start=start,segment.id=segment.id,data.current=data.current,expedit=expedite)
+report.data <- QueueRanked(reportsuite.id, date.from, date.to, metrics,elements,top=top,start=start,segment.id=segment.id,data.current=data.current,expedit=expedite)
 ```
 
 
