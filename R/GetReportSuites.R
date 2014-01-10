@@ -1,10 +1,15 @@
 #' GetReportSuites
 #'
-#' Gets available report suite reportsuites
+#' Gets all available report suites for the company.
 #'
 #' @return List of valid reportsuites
 #'
 #' @export
+#'
+#' @examples
+#' reportsuites <- GetReportSuites()
+#'
+
 
 GetReportSuites <- function() {
 

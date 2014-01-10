@@ -1,7 +1,7 @@
 RAA
 ===============
 
-##### Pronounced _RAAAH!_ Like a ferocious lion.
+##### Pronounced _RAAAH!_ (imagine you are a lion).
 
 R client library for the Adobe Analytics 1.4 API, currently in beta, but due out in Feb 2014.
 Get in touch with me if you're interested in using it. It is functional, but has not been extensively tested.
@@ -269,14 +269,14 @@ evars <- GetEvars(c("your_prod_report_suite","your_dev_reportsuite"))
 Gets sprop (traffic variable) definitions for the specified report suite(s). Useful to audit or document a report suite or company in Adobe Analytics.
 
 ```
-props <- GetEvars(c("your_prod_report_suite","your_dev_reportsuite"))
+props <- GetProps(c("your_prod_report_suite","your_dev_reportsuite"))
 ```
 
 #### GetSuccessEvents
 Gets success event definitions for the specified report suite(s). Useful to audit or document a report suite or company in Adobe Analytics.
 
 ```
-successevents <- GetEvars(c("your_prod_report_suite","your_dev_reportsuite"))
+successevents <- GetSuccessEvents(c("your_prod_report_suite","your_dev_reportsuite"))
 ```
 
 #### GetReportSuites
@@ -290,7 +290,7 @@ reportsuites <- GetReportSuites()
 Gets a list of segments for the specified report suites. Useful to find segment IDs for use in reporting helper functions or JSON report definitions.
 
 ```
-reportsuites <- GetSegments(c("your_prod_report_suite","your_dev_reportsuite"))
+segments <- GetSegments(c("your_prod_report_suite","your_dev_reportsuite"))
 ```
 
 
