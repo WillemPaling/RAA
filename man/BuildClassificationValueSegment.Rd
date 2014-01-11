@@ -25,6 +25,7 @@ segment definition for use with Queue* helper functions
 \description{
 Helper function to build a classification value segment for
 use with other reports Multiple segments can be combined in
-a list
+a list. Note that search can only be applied to a breakdown
+classification and not an element value.
 }
 

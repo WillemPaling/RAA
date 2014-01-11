@@ -3,8 +3,8 @@
 \title{QueueRanked}
 \usage{
 QueueRanked(reportsuite.id, date.from, date.to, metrics, elements, top = 0,
-  start = 0, selected = list(), segment.id = "", data.current = FALSE,
-  expedite = FALSE)
+  start = 0, selected = list(), segment.id = "", segment.inline = "",
+  data.current = FALSE, expedite = FALSE)
 }
 \arguments{
   \item{reportsuite.id}{report suite id}
@@ -30,6 +30,8 @@ QueueRanked(reportsuite.id, date.from, date.to, metrics, elements, top = 0,
 
   \item{segment.id}{id of Adobe Analytics segment to
   retrieve the report for}
+
+  \item{segment.inline}{inline segment definition}
 
   \item{anomaly.dection}{set to TRUE to include forecast
   data (only valid for day granularity with small date
