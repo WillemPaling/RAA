@@ -27,6 +27,7 @@ QueueRanked <- function(reportsuite.id, date.from, date.to, metrics, elements,
 
   # build JSON description
   # we have to use jsonlite:::as.scalar to force jsonlist not put strings into single-element arrays
+  # new release of jsonlite will let us use jsonlite::singleton() (function is actually exported)
   report.description <- c()
   report.description$reportDescription <- c(data.frame(matrix(ncol=0, nrow=1)))
   report.description$reportDescription$dateFrom <- jsonlite:::as.scalar(date.from)
@@ -34,9 +35,6 @@ QueueRanked <- function(reportsuite.id, date.from, date.to, metrics, elements,
   report.description$reportDescription$reportSuiteID <- jsonlite:::as.scalar(reportsuite.id)
   if(segment.inline!="") {
     report.description$reportDescription$segments <- list(segment.inline)
-  }
-  if(top>0) { 
-    report.description$reportDescription$top <- jsonlite:::as.scalar(top) 
   }
   if(start>0) { 
     report.description$reportDescription$start <- jsonlite:::as.scalar(start) 
@@ -58,7 +56,7 @@ QueueRanked <- function(reportsuite.id, date.from, date.to, metrics, elements,
       if(length(selected[element])){
         if(i==1) {
           # put in top and startingWith for the first element only
-          working.element = list(id = jsonlite:::as.scalar(element), 
+          working.element <- list(id = jsonlite:::as.scalar(element), 
                                       top = jsonlite:::as.scalar(top), 
                                       startingWith = jsonlite:::as.scalar(start), 
                                       selected = selected[element][1][[1]])
@@ -75,8 +73,12 @@ QueueRanked <- function(reportsuite.id, date.from, date.to, metrics, elements,
     report.description$reportDescription$elements <- elements.formatted
   } else {
     # just plug in the elements
-    report.description$reportDescription$elements <- data.frame(id = elements)
+    report.description$reportDescription$elements <- list(list(id = jsonlite:::as.scalar(element), 
+                                                          top = jsonlite:::as.scalar(top), 
+                                                          startingWith = jsonlite:::as.scalar(start)))
   }
+
+  print(toJSON(report.description))
 
   report.data <- JsonQueueReport(toJSON(report.description))
 

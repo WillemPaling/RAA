@@ -11,6 +11,7 @@
 #' @importFrom httr content
 #' @importFrom httr POST
 #' @importFrom jsonlite toJSON
+#' @importFrom jsonlite fromJSON
 #'
 #' @return list of available evars
 #'
@@ -49,8 +50,6 @@ ApiRequest <- function(body="",func.name="",interval.seconds=2,max.attempts=1,pr
       Sys.sleep(interval.seconds)
     }
   }
-
-  print(response)
 
   if(!result){
     response.content <- content(response)
