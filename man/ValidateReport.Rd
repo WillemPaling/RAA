@@ -2,7 +2,7 @@
 \alias{ValidateReport}
 \title{ValidateReport}
 \usage{
-ValidateReport(report.description, interval.seconds = 2, max.attempts = 5)
+ValidateReport(report.description, interval.seconds = 0, max.attempts = 1)
 }
 \arguments{
   \item{report.description}{JSON report description}

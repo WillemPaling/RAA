@@ -43,7 +43,10 @@ RAA_Auth <- function(key, secret, endpoint.url="", token.file="", auth.method="O
       aa.app <- oauth_app("RAA", key, secret)
       aa.cred <- oauth2.0_token(aa.api, aa.app, scope="ReportSuite Report Company")
 
-      print(aa.cred)
+      if(!is.null(aa.cred$error)) {
+        print(paste("ERROR:",aa.cred$error))
+        stop(aa.cred$error_description)
+      }
 
       RAA.Credentials <<- list(endpoint.url=endpoint.url,
                                auth.method=auth.method,

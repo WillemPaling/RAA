@@ -11,7 +11,7 @@
 #' @export
 #'
 
-ValidateReport <- function(report.description,interval.seconds=2,max.attempts=5) {
+ValidateReport <- function(report.description,interval.seconds=0,max.attempts=1) {
 
   response <- ApiRequest(body=report.description,func.name="Report.Validate")
 
