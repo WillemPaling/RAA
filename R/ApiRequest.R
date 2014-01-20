@@ -9,6 +9,7 @@
 #' @param print.attempts if set to TRUE, this will print attempt numbers to the console
 #'
 #' @importFrom httr content
+#' @importFrom httr POST
 #' @importFrom jsonlite toJSON
 #'
 #' @return list of available evars
