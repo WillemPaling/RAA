@@ -25,8 +25,8 @@ QueueRanked(reportsuite.id, date.from, date.to, metrics, elements, top = 0,
   - only applies to the first element.}
 
   \item{selected}{list of specific items to include in the
-  report - e.g. list(page=c("Home","Search","About")). This
-  appears to only work for the first element.}
+  report - e.g. list(page=c("Home","Search","About")). this
+  only works for the first element (API limitation).}
 
   \item{segment.id}{id of Adobe Analytics segment to
   retrieve the report for}

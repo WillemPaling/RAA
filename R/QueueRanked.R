@@ -10,7 +10,7 @@
 #' @param top number of elements to include (top X) - only applies to the first element.
 #' @param start start row if you do not want to start at #1 - only applies to the first element.
 #' @param selected list of specific items to include in the report - e.g. list(page=c("Home","Search","About")). 
-#' This appears to only work for the first element.
+#' this only works for the first element (API limitation).
 #' @param segment.id id of Adobe Analytics segment to retrieve the report for
 #' @param segment.inline inline segment definition
 #' @param anomaly.dection  set to TRUE to include forecast data (only valid for day granularity with small date ranges)
@@ -47,38 +47,31 @@ QueueRanked <- function(reportsuite.id, date.from, date.to, metrics, elements,
   }
   report.description$reportDescription$metrics = data.frame(id = metrics)
 
-  if(length(selected)>0) {
-    # build up each element with selections
-    elements.formatted <- list()
-    i <- 0
-    for(element in elements) {
-      i <- i + 1
-      if(length(selected[element])){
-        if(i==1) {
-          # put in top and startingWith for the first element only
-          working.element <- list(id = jsonlite:::as.scalar(element), 
-                                      top = jsonlite:::as.scalar(top), 
-                                      startingWith = jsonlite:::as.scalar(start), 
-                                      selected = selected[element][1][[1]])
-        } else {
-          working.element <- list(id = jsonlite:::as.scalar(element), selected=selected[element][1][[1]])
-        }
-      }
-      if(length(elements.formatted)>0) {
-        elements.formatted <- rbind(elements.formatted,working.element)
-      } else {
-        elements.formatted <- working.element
-      }
+  elements.formatted <- list()
+  # build up each element with selections
+  i <- 0
+  for(element in elements) {
+    i <- i + 1
+    if(length(selected[element]) && i==1){
+      # put in top and startingWith for the first element only
+      working.element <- list(id = jsonlite:::as.scalar(element), 
+                                  top = jsonlite:::as.scalar(top), 
+                                  startingWith = jsonlite:::as.scalar(start), 
+                                  selected = selected[element][1][[1]])
+    } else {
+      working.element <- list(id = jsonlite:::as.scalar(element), 
+                              top = jsonlite:::as.scalar(top), 
+                              startingWith = jsonlite:::as.scalar(start),
+                              selected=NULL)
     }
-    report.description$reportDescription$elements <- elements.formatted
-  } else {
-    # just plug in the elements
-    report.description$reportDescription$elements <- list(list(id = jsonlite:::as.scalar(element), 
-                                                          top = jsonlite:::as.scalar(top), 
-                                                          startingWith = jsonlite:::as.scalar(start)))
+    if(length(elements.formatted)>0) {
+      elements.formatted <- rbind(elements.formatted,working.element)
+    } else {
+      elements.formatted <- working.element
+    }
   }
 
-  print(toJSON(report.description))
+  report.description$reportDescription$elements <- elements.formatted
 
   report.data <- JsonQueueReport(toJSON(report.description))
 
