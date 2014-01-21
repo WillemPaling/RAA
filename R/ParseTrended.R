@@ -52,6 +52,11 @@ ParseTrended <- function(report.data) {
         counts.df <- cbind(counts.df,lowerBounds.df)
       }
 
+      # convert all count columns to numeric
+      for(i in 1:ncol(counts.df)) {
+        counts.df[,i] <- as.numeric(counts.df[,i])
+      }
+
       drops <- c("counts","forecasts","upperBounds","lowerBounds")
       temp <- temp[,!(names(temp) %in% drops)]
       temp <- cbind(temp,counts.df)

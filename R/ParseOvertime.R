@@ -56,6 +56,11 @@ ParseOvertime <- function(report.data) {
     rows.df <- rows.df[,!(names(rows.df) %in% drops)]
   }
 
+  # convert all count columns to numeric
+  for(i in 1:ncol(counts.df)) {
+    counts.df[,i] <- as.numeric(counts.df[,i])
+  }
+
   formatted.df <- cbind(datetime,rows.df, counts.df)
 
   return(formatted.df)

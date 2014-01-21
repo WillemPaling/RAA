@@ -24,6 +24,11 @@ ParseRanked <- function(report.data) {
     counts.df <- ldply(data$counts)
     names(counts.df) <- metrics #assign names to counts.df
 
+    # convert all count columns to numeric
+    for(i in 1:ncol(counts.df)) {
+      counts.df[,i] <- as.numeric(counts.df[,i])
+    }
+
     drops <- c("counts")
     rows.df <- data[,!(names(data) %in% drops)]
 

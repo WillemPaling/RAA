@@ -51,6 +51,11 @@ BuildInnerBreakdownsRecursively <- function(parent.element,elements,metrics,
         working.metrics <- cbind(working.metrics,forecasts.df)
       }
 
+      # convert all count columns to numeric
+      for(i in 1:ncol(working.metrics)) {
+        working.metrics[,i] <- as.numeric(working.metrics[,i])
+      }
+
       # build our list of elements
       outer.elements <- working.element$name
       names(outer.elements) <- "name"

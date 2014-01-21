@@ -38,8 +38,6 @@ QueueOvertime <- function(reportsuite.id, date.from, date.to, metrics,
   }
   report.description$reportDescription$metrics = data.frame(id = metrics)
 
-  print(toJSON(report.description))
-
   report.data <- JsonQueueReport(toJSON(report.description))
 
   return(report.data) 

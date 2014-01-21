@@ -18,7 +18,7 @@ ParsePathing <- function(report.data) {
   paths.df<-ldply(data$path,.fun=function(row){return(row$name)})
   names(paths.df) <- paste("step.",1:ncol(paths.df),sep="")
 
-  paths.df$count <- data$counts
+  paths.df$count <- as.numeric(data$counts)
 
   return(paths.df)
 
