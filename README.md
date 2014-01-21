@@ -22,7 +22,7 @@ And then run ```install_github``` to install _RAA_.
 install_github("RAA","willempaling")
 ```
 
-And finally you are ready to load it.
+And finally you are ready to load i t.
 
 ```
 library(RAA)
@@ -35,9 +35,11 @@ You may also need to install other packages that _RAA_ depends on.
 * [httr](http://cran.r-project.org/web/packages/httr/)
 * [stringr](http://cran.r-project.org/web/packages/stringr/)
 
-And for the OAUTH auth method, you'll also need:
+If you want to use the OAUTH auth method, you'll also need:
 
+* [Rook](http://cran.r-project.org/web/packages/Rook/)
 * [httpuv](http://cran.r-project.org/web/packages/httpuv/)
+* [httr - dev branch](https://github.com/hadley/httr) (requires the development version from Hadley's Github ```install_github('httr')```)
 
 For the legacy auth method (username/shared secret) you'll also need the following:
 
@@ -46,10 +48,19 @@ For the legacy auth method (username/shared secret) you'll also need the followi
 
 
 ```
-install.packages(c("jsonlite","plyr","httr","stringr","digest","base64enc,"httpuv"))
+install.packages(c("jsonlite","plyr","httr","stringr","digest","base64enc,"httpuv","Rook"))
 ```
+
+And if you're installing the dev branch of HTTR:
+
+```
+library(devtools)
+install_github('httr')
+```
+
 ## Authorisation
-Authorisation can be done using the legacy auth method (username:company + shared secret), or using the newer OAUTH method. Either is fine, but ultimately you should move towards using the OAUTH method, as the legacy auth method is deprecated.
+Authorisation can be done using the legacy auth method (username:company + shared secret), or using the newer OAUTH method.
+Either is fine, but ultimately you should move towards using the OAUTH method, as the legacy auth method is deprecated.
 
 ##### Using OAUTH
 First you will need to create an application in the [Adobe Dev Center](https://developer.omniture.com/en_US/devcenter). The application name can be whatever you want. The redirect URI should be left blank.
