@@ -4,6 +4,8 @@
 #'
 #' @param report.data jsonlite formatted data frame of report data returned from the API
 #'
+#' @importFrom plyr rename
+#'
 #' @return Formatted data frame
 #'
 #' @family internal
@@ -21,7 +23,7 @@ ParseTrended <- function(report.data) {
 
   # We need to work our way down the nested data structure
   # We've essentially got a ranked report for each date
-  for(i in 1:(nrow(data))) {
+  for(i in 1:nrow(data)) {
 
     if(length(elements)>1){
       # if we have multiple elements, then build inner breakdowns
@@ -53,8 +55,8 @@ ParseTrended <- function(report.data) {
       }
 
       # convert all count columns to numeric
-      for(i in 1:ncol(counts.df)) {
-        counts.df[,i] <- as.numeric(counts.df[,i])
+      for(j in 1:ncol(counts.df)) {
+        counts.df[,j] <- as.numeric(counts.df[,j])
       }
 
       drops <- c("counts","forecasts","upperBounds","lowerBounds")
@@ -64,8 +66,8 @@ ParseTrended <- function(report.data) {
     
     # build out the date columns and bind them to the left of the data frame
     date.df <- data.frame(matrix(NA, nrow = nrow(temp), ncol = 5))
-    names(date.df) <- c("name","datetime","year","month","day")
-    date.df$name <- data[i,]$name
+    names(date.df) <- c("date_desc","datetime","year","month","day")
+    date.df$date_desc <- data[i,]$name
     date.df$year <- data[i,]$year
     date.df$month <- data[i,]$month
     date.df$day <- data[i,]$day
@@ -75,7 +77,12 @@ ParseTrended <- function(report.data) {
     } else {
       date.df$datetime <- strptime(paste(data[i,]$year,data[i,]$month,data[i,]$day,sep="-"), "%Y-%m-%d")
     }
+
     temp <- cbind(date.df,temp)
+
+    # clean up redundant date field
+    drops <- c("date_desc","year","month","day")
+    temp <- temp[,!(names(temp) %in% drops)]
 
     if(nrow(formatted.df)>0) {
         formatted.df <- rbind(formatted.df,temp)

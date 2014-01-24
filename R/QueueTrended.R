@@ -80,7 +80,7 @@ QueueTrended <- function(reportsuite.id, date.from, date.to, metrics, elements,
         elements.formatted <- working.element
       }
     }
-    report.description$reportDescription$elements <- elements.formatted
+    report.description$reportDescription$elements <- list(elements.formatted)
   } else {
     # just plug in the elements
     report.description$reportDescription$elements <- data.frame(id = elements)

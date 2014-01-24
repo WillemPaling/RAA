@@ -9,6 +9,7 @@
 #' @param print.attempts if set to TRUE, this will print attempt numbers to the console
 #'
 #' @importFrom httr content
+#' @importFrom httr add_headers
 #' @importFrom httr POST
 #' @importFrom jsonlite toJSON
 #' @importFrom jsonlite fromJSON
@@ -29,6 +30,7 @@ ApiRequest <- function(body="",func.name="",interval.seconds=2,max.attempts=1,pr
 
   if(RAA.Debug) {
     print(paste("Requesting URL: ",url))
+    print(body)
   }
 
   result <- FALSE
