@@ -1,6 +1,6 @@
-#' ValidateReport
+#' BuildInnerBreakdownsRecursively
 #'
-#' Internal function - Calls the API and attempts to validate a report description.
+#' Internal function - Build inner breakdowns for ranked and trended reports with multiple elements
 #'
 #' @param parent.element element containing breakdown rows
 #' @param elements list of all elements included in the report
