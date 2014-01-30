@@ -1,4 +1,4 @@
-RAA - Active development is now taking place in collaboration with [Randy Zwitch](https://github.com/randyzwitch) under RSiteCatalyst (version_1_4)
+RAA - Active development is now taking place in collaboration with [Randy Zwitch](https://github.com/randyzwitch) under [RSiteCatalyst (version_1_4)](https://github.com/randyzwitch/RSiteCatalyst/tree/version_1_4)
 ===============
 
 ##### Pronounced _RAAAH!_ (imagine you are a ferocious lion).
